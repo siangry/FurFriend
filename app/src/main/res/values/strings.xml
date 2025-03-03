@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">FurFriend</string>
+
+    <!--example-->
+    <!--<string name="my_pets">My Pet(s)</string>-->
 </resources>
