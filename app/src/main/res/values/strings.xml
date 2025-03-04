@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">FurFriend</string>
-
-    <!--example-->
-    <!--<string name="my_pets">My Pet(s)</string>-->
+    <string name="home">Home</string>
+    <string name="search">Search</string>
+    <string name="social">Social</string>
+    <string name="calendar">Calendar</string>
+    <string name="profile">Profile</string>
 </resources>
