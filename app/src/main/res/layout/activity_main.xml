@@ -20,12 +20,11 @@
         android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
+        android:background="@color/beige"
         android:layout_alignParentBottom="true"
-        android:elevation="8dp"
+        app:labelVisibilityMode="unlabeled"
         app:itemIconTint="@color/bottom_nav_selector"
-        app:itemTextColor="@color/orange"
-        app:itemBackground="@drawable/bottom_nav_design"
         app:itemActiveIndicatorStyle="@color/white"
+        app:itemRippleColor="@android:color/transparent"
         app:menu="@menu/bottom_nav_menu"/>
 </RelativeLayout>
