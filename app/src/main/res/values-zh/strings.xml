@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="splashText">Where Every Pawprint Matters</string>
     <string name="app_name">FurFriend</string>
     <string name="home">首页</string>
     <string name="search">搜索</string>

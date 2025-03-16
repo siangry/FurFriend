@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">FurFriend</string>
+    <string name="splashText">Where Every Pawprint Matters</string>
     <string name="home">Halaman Muka</string>
     <string name="search">Pencarian</string>
     <string name="social">Sosial</string>
