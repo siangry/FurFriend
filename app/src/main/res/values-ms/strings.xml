@@ -7,4 +7,12 @@
     <string name="social">Sosial</string>
     <string name="calendar">Kalender</string>
     <string name="profile">Profil</string>
+    <string name="onboardingTitle1">Selamat datang ke FurFriend: Di Mana Setiap Pawprint Penting!</string>
+    <string name="onboardingTitle2">Temui Dan Sambung, Di Mana Sahaja Anda Berada</string>
+    <string name="onboardingTitle3">Jangan Terlepas Sesaat Bersama Rakan Bulu Anda</string>
+    <string name="onboardingDesc1">Semua keperluan haiwan kesayangan anda di satu tempat—mudah, penyayang, berhubung</string>
+    <string name="onboardingDesc2">Cari tempat mesra haiwan kesayangan yang berdekatan dan kongsi detik istimewa dengan komuniti</string>
+    <string name="onboardingDesc3">Jejaki aktiviti, tetapkan peringatan dan pastikan rakan berbulu anda gembira dan sihat</string>
+    <string name="next">Seterusnya</string>
+    <string name="getStarted">Mulakan</string>
 </resources>

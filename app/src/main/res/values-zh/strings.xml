@@ -7,4 +7,12 @@
     <string name="social">社交</string>
     <string name="calendar">日历</string>
     <string name="profile">个人主页</string>
+    <string name="onboardingTitle1">欢迎来到 FurFriend：每一个爪印都很重要！</string>
+    <string name="onboardingTitle2">无论您身在何处，都能探索和连接</string>
+    <string name="onboardingTitle3">不要错过与毛茸茸朋友相处的任何时刻</string>
+    <string name="onboardingDesc1">您宠物的所有需求都集中在一个地方——简单、充满爱、互联</string>
+    <string name="onboardingDesc2">查找附近允许携带宠物的场所，与社区分享特别时刻</string>
+    <string name="onboardingDesc3">追踪活动、设置提醒，让你的毛茸茸的朋友保持快乐和健康</string>
+    <string name="next">下一个</string>
+    <string name="getStarted">开始使用</string>
 </resources>
