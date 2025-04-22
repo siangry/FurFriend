@@ -6,4 +6,12 @@
     <string name="social">Social</string>
     <string name="calendar">Calendar</string>
     <string name="profile">Profile</string>
+    <string name="onboardingTitle1">Welcome to FurFriend: Where Every Pawprint Matters!</string>
+    <string name="onboardingTitle2">Discover And Connect, Wherever You Are</string>
+    <string name="onboardingTitle3">Never Miss a Moment with Your Fur Friend</string>
+    <string name="onboardingDesc1">All your pet’s needs in one place—simple, loving, connected</string>
+    <string name="onboardingDesc2">Find nearby pet-friendly spots and share special moments with the community</string>
+    <string name="onboardingDesc3">Track activities, set reminders, and keep your furry friend happy and healthy</string>
+    <string name="next">Next</string>
+    <string name="getStarted">Get Started</string>
 </resources>

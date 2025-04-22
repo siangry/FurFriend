@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/onboardingImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="onboarding image"
+        android:src="@drawable/ic_onboarding_1"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="36dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineHalf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.58" />
+
+    <View
+        android:id="@+id/whiteBackground"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/onboarding_rounded_corner"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guidelineHalf"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/onboardingIndicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:contentDescription="onboarding indicator"
+        android:src="@drawable/ic_indicator_1"
+        app:layout_constraintBottom_toTopOf="@+id/onboardingTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/onboardingTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/onboardingDesc"
+        android:layout_gravity="center_horizontal"
+        android:padding="20dp"
+        android:text="Title"
+        android:textAlignment="center"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/whiteBackground"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/whiteBackground"
+        app:layout_constraintVertical_bias="0.316" />
+
+    <TextView
+        android:id="@+id/onboardingDesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:padding="20dp"
+        android:text="Description"
+        android:textAlignment="center"
+        android:textColor="@color/dark_grey"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@id/whiteBackground"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/onboardingTitle"
+        app:layout_constraintVertical_bias="0.138" />
+</androidx.constraintlayout.widget.ConstraintLayout>
