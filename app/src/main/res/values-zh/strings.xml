@@ -15,4 +15,25 @@
     <string name="onboardingDesc3">追踪活动、设置提醒，让你的毛茸茸的朋友保持快乐和健康</string>
     <string name="next">下一个</string>
     <string name="getStarted">开始使用</string>
+    <string name="welcomeBack">欢迎回来！</string>
+    <string name="email">电子邮件</string>
+    <string name="password">密码</string>
+    <string name="forgotPassword">忘记密码？</string>
+    <string name="login">登录</string>
+    <string name="dontHaveAnAccount">沒有账戶？</string>
+    <string name="signup">注册</string>
+    <string name="alreadyHaveAnAccount">已有账户？</string>
+    <string name="username">用户名</string>
+    <string name="atLeast6Char">至少 6 个字符</string>
+    <string name="atLeast1Upper1Lower">至少 1 个大写字母和 1 个小写字母</string>
+    <string name="atLeast1Numeric">至少 1 个数字</string>
+    <string name="atLeast1SpecialChar">至少 1 个特殊字符</string>
+    <string name="accountCreatedSuccessfully">您的帐户已成功创建！</string>
+    <string name="incorrectEmailPassword">邮箱或密码不正确，请重试。</string>
+    <string name="passwordNotFulfillRequirement">您的密码不符合要求。请重试。</string>
+    <string name="usernameExisted">用户名已存在。请重试。</string>
+    <string name="emailExisted">电子邮件已存在。请重试。</string>
+    <string name="incorrectEmailFormat">电子邮件格式不正确。请重试。</string>
+    <string name="loginFailed">登录失败。请重试。</string>
+    <string name="signupFailed">注册失败。请重试。</string>
 </resources>

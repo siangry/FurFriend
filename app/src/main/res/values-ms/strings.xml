@@ -15,4 +15,25 @@
     <string name="onboardingDesc3">Jejaki aktiviti, tetapkan peringatan dan pastikan rakan berbulu anda gembira dan sihat</string>
     <string name="next">Seterusnya</string>
     <string name="getStarted">Mulakan</string>
+    <string name="welcomeBack">Selamat kembali!</string>
+    <string name="email">E-mel</string>
+    <string name="password">Kata laluan</string>
+    <string name="forgotPassword">Lupa kata laluan?</string>
+    <string name="login">Log masuk</string>
+    <string name="dontHaveAnAccount">Tiada akaun?</string>
+    <string name="signup">Daftar</string>
+    <string name="alreadyHaveAnAccount">Sudah mempunyai akaun?</string>
+    <string name="username">Nama pengguna</string>
+    <string name="atLeast6Char">Sekurang-kurangnya 6 aksara</string>
+    <string name="atLeast1Upper1Lower">Sekurang-kurangnya 1 huruf besar dan 1 huruf kecil</string>
+    <string name="atLeast1Numeric">Sekurang-kurangnya 1 angka</string>
+    <string name="atLeast1SpecialChar">Sekurang-kurangnya 1 watak istimewa</string>
+    <string name="accountCreatedSuccessfully">Akaun anda telah berjaya dibuat!</string>
+    <string name="incorrectEmailPassword">E-mel atau kata laluan yang salah. Sila cuba lagi.</string>
+    <string name="passwordNotFulfillRequirement">Kata laluan anda tidak memenuhi keperluan. Sila cuba lagi.</string>
+    <string name="usernameExisted">Nama pengguna sudah wujud. Sila cuba lagi.</string>
+    <string name="emailExisted">E-mel sudah wujud. Sila cuba lagi.</string>
+    <string name="incorrectEmailFormat">Format e-mel tidak betul. Sila cuba lagi.</string>
+    <string name="loginFailed">Log masuk gagal. Sila cuba lagi.</string>
+    <string name="signupFailed">Pendaftaran gagal. Sila cuba lagi.</string>
 </resources>
