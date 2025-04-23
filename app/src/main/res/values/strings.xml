@@ -14,4 +14,25 @@
     <string name="onboardingDesc3">Track activities, set reminders, and keep your furry friend happy and healthy</string>
     <string name="next">Next</string>
     <string name="getStarted">Get Started</string>
+    <string name="welcomeBack">Welcome back!</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="forgotPassword">Forgot password?</string>
+    <string name="login">Login</string>
+    <string name="dontHaveAnAccount">Don\'t have an account?</string>
+    <string name="signup">Sign up</string>
+    <string name="alreadyHaveAnAccount">Already have an account?</string>
+    <string name="username">Username</string>
+    <string name="atLeast6Char">At least 6 characters</string>
+    <string name="atLeast1Upper1Lower">At least 1 uppercase and 1 lowercase</string>
+    <string name="atLeast1Numeric">At least 1 numeric</string>
+    <string name="atLeast1SpecialChar">At least 1 special character</string>
+    <string name="accountCreatedSuccessfully">Your account has been created successfully!</string>
+    <string name="incorrectEmailPassword">Incorrect email or password. Please try again.</string>
+    <string name="passwordNotFulfillRequirement">Your password does not fulfill requirement. Please try again.</string>
+    <string name="usernameExisted">Username already existed. Please try again.</string>
+    <string name="emailExisted">Email already existed. Please try again.</string>
+    <string name="incorrectEmailFormat">Email format incorrect. Please try again.</string>
+    <string name="loginFailed">Login failed. Please try again.</string>
+    <string name="signupFailed">Signup failed. Please try again.</string>
 </resources>

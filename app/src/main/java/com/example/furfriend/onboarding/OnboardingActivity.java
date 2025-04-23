@@ -10,6 +10,7 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.furfriend.MainActivity;
 import com.example.furfriend.R;
+import com.example.furfriend.screen.LoginActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +27,7 @@ public class OnboardingActivity extends AppCompatActivity {
 
         SharedPreferences prefs = getSharedPreferences("onboarding", MODE_PRIVATE);
         if (prefs.getBoolean("completed", false)) {
-            startActivity(new Intent(this, MainActivity.class));
+            startActivity(new Intent(this, LoginActivity.class));
             finish();
             return;
         }
@@ -53,7 +54,7 @@ public class OnboardingActivity extends AppCompatActivity {
                 editor.putBoolean("completed", true);
                 editor.apply();
 
-                startActivity(new Intent(OnboardingActivity.this, MainActivity.class));
+                startActivity(new Intent(OnboardingActivity.this, LoginActivity.class));
                 finish();
             }
         });
