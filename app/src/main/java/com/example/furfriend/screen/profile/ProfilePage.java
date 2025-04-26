@@ -1,4 +1,4 @@
-package com.example.furfriend.screen;
+package com.example.furfriend.screen.profile;
 
 import androidx.fragment.app.Fragment;
 
@@ -9,12 +9,12 @@ import android.view.ViewGroup;
 
 import com.example.furfriend.R;
 
-public class HomePage extends Fragment {
+public class ProfilePage extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        return inflater.inflate(R.layout.screen_home_page, container, false);
+        return inflater.inflate(R.layout.screen_profile_page, container, false);
     }
 }

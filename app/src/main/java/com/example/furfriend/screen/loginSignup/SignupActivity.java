@@ -1,4 +1,4 @@
-package com.example.furfriend.screen;
+package com.example.furfriend.screen.loginSignup;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
@@ -7,10 +7,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.furfriend.FirestoreCollection;
 import com.example.furfriend.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
@@ -79,7 +81,7 @@ public class SignupActivity extends AppCompatActivity {
                                     userMap.put("username", user);
                                     userMap.put("email", mail);
 
-                                    db.collection("users").document(uid).set(userMap).addOnSuccessListener(unused -> {
+                                    db.collection(FirestoreCollection.USERS).document(uid).collection(FirestoreCollection.PROFILE).document(FirestoreCollection.USER_DETAILS).set(userMap).addOnSuccessListener(unused -> {
                                         Toast.makeText(this, R.string.accountCreatedSuccessfully, Toast.LENGTH_SHORT).show();
                                         Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
                                         startActivity(intent);
@@ -115,7 +117,7 @@ public class SignupActivity extends AppCompatActivity {
 
     private void checkUsernameExists(String username, OnUsernameCheckListener listener) {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-        db.collection("users")
+        db.collection(FirestoreCollection.USERS)
                 .whereEqualTo("username", username)
                 .get()
                 .addOnCompleteListener(task -> {

@@ -1,4 +1,4 @@
-package com.example.furfriend.screen;
+package com.example.furfriend.screen.loginSignup;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;

@@ -30,10 +30,15 @@
     <string name="atLeast1SpecialChar">至少 1 个特殊字符</string>
     <string name="accountCreatedSuccessfully">您的帐户已成功创建！</string>
     <string name="incorrectEmailPassword">邮箱或密码不正确，请重试。</string>
-    <string name="passwordNotFulfillRequirement">您的密码不符合要求。请重试。</string>
     <string name="usernameExisted">用户名已存在。请重试。</string>
     <string name="emailExisted">电子邮件已存在。请重试。</string>
     <string name="incorrectEmailFormat">电子邮件格式不正确。请重试。</string>
     <string name="loginFailed">登录失败。请重试。</string>
     <string name="signupFailed">注册失败。请重试。</string>
+    <string name="hi">你好，%1$s</string>
+    <string name="myPets">我的宠物</string>
+    <string name="todayReminders">今日提醒</string>
+    <string name="seeMore">查看更多</string>
+    <string name="noPetAdded">没有添加宠物</string>
+    <string name="noReminderToday">今天没有提醒</string>
 </resources>
