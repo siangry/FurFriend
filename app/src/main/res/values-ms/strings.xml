@@ -30,10 +30,15 @@
     <string name="atLeast1SpecialChar">Sekurang-kurangnya 1 watak istimewa</string>
     <string name="accountCreatedSuccessfully">Akaun anda telah berjaya dibuat!</string>
     <string name="incorrectEmailPassword">E-mel atau kata laluan yang salah. Sila cuba lagi.</string>
-    <string name="passwordNotFulfillRequirement">Kata laluan anda tidak memenuhi keperluan. Sila cuba lagi.</string>
     <string name="usernameExisted">Nama pengguna sudah wujud. Sila cuba lagi.</string>
     <string name="emailExisted">E-mel sudah wujud. Sila cuba lagi.</string>
     <string name="incorrectEmailFormat">Format e-mel tidak betul. Sila cuba lagi.</string>
     <string name="loginFailed">Log masuk gagal. Sila cuba lagi.</string>
     <string name="signupFailed">Pendaftaran gagal. Sila cuba lagi.</string>
+    <string name="hi">Hai, %1$s</string>
+    <string name="myPets">Haiwan Kesayangan Saya</string>
+    <string name="todayReminders">Peringatan Hari Ini</string>
+    <string name="seeMore">Lihat lagi</string>
+    <string name="noPetAdded">Tiada haiwan peliharaan ditambah</string>
+    <string name="noReminderToday">Tiada peringatan hari ini</string>
 </resources>

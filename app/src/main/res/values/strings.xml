@@ -29,10 +29,15 @@
     <string name="atLeast1SpecialChar">At least 1 special character</string>
     <string name="accountCreatedSuccessfully">Your account has been created successfully!</string>
     <string name="incorrectEmailPassword">Incorrect email or password. Please try again.</string>
-    <string name="passwordNotFulfillRequirement">Your password does not fulfill requirement. Please try again.</string>
     <string name="usernameExisted">Username already existed. Please try again.</string>
     <string name="emailExisted">Email already existed. Please try again.</string>
     <string name="incorrectEmailFormat">Email format incorrect. Please try again.</string>
     <string name="loginFailed">Login failed. Please try again.</string>
     <string name="signupFailed">Signup failed. Please try again.</string>
+    <string name="hi">Hi, %1$s</string>
+    <string name="myPets">My Pet(s)</string>
+    <string name="todayReminders">Today Reminder(s)</string>
+    <string name="seeMore">See more</string>
+    <string name="noPetAdded">No pet added</string>
+    <string name="noReminderToday">No reminder today</string>
 </resources>

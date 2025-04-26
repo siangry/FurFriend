@@ -8,9 +8,8 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
 
-import com.example.furfriend.MainActivity;
 import com.example.furfriend.R;
-import com.example.furfriend.screen.LoginActivity;
+import com.example.furfriend.screen.loginSignup.LoginActivity;
 
 import java.util.ArrayList;
 import java.util.List;
