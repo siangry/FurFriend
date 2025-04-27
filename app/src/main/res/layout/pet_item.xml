@@ -20,7 +20,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/pet_name"
+            android:id="@+id/petName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Pet name"
@@ -29,7 +29,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/pet_type"
+            android:id="@+id/petType"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Pet type"

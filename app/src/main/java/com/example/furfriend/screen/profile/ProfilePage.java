@@ -17,17 +17,15 @@ import com.bumptech.glide.Glide;
 import com.example.furfriend.FirestoreCollection;
 import com.example.furfriend.R;
 import com.example.furfriend.screen.loginSignup.LoginActivity;
-import com.example.furfriend.screen.loginSignup.SignupActivity;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class ProfilePage extends Fragment {
-
     private ImageView profileImageView, editProfileImageView;
-    private TextView usernameTextView, emailTextView, logoutTextView;
-    private LinearLayout petsContainer, noPetView;
+    private TextView usernameTextView, emailTextView,logoutTextView;
+    private LinearLayout petsContainer, noPetView,  seeMorePet;
     private Button addPetButton;
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
@@ -43,6 +41,7 @@ public class ProfilePage extends Fragment {
         emailTextView = view.findViewById(R.id.userEmail);
         petsContainer = view.findViewById(R.id.petContainer);
         noPetView = view.findViewById(R.id.noPetView);
+        seeMorePet = view.findViewById(R.id.seeMorePets);
         addPetButton = view.findViewById(R.id.btnAddPet);
         logoutTextView = view.findViewById(R.id.logout);
 
@@ -62,6 +61,10 @@ public class ProfilePage extends Fragment {
 
         editProfileImageView.setOnClickListener(v -> {
             startActivity(new Intent(getActivity(), EditProfilePage.class));
+        });
+
+        seeMorePet.setOnClickListener(v -> {
+            startActivity(new Intent(getActivity(), ViewAllPetPage.class));
         });
 
         return view;
