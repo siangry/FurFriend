@@ -4,7 +4,7 @@ import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,12 +12,12 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.furfriend.FirestoreCollection;
 import com.example.furfriend.R;
 import com.example.furfriend.screen.loginSignup.LoginActivity;
+import com.example.furfriend.screen.loginSignup.SignupActivity;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -25,7 +25,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 public class ProfilePage extends Fragment {
 
-    private ImageView profileImageView;
+    private ImageView profileImageView, editProfileImageView;
     private TextView usernameTextView, emailTextView, logoutTextView;
     private LinearLayout petsContainer, noPetView;
     private Button addPetButton;
@@ -38,6 +38,7 @@ public class ProfilePage extends Fragment {
         View view = inflater.inflate(R.layout.screen_profile_page, container, false);
 
         profileImageView = view.findViewById(R.id.profileImage);
+        editProfileImageView = view.findViewById(R.id.editProfile);
         usernameTextView = view.findViewById(R.id.userName);
         emailTextView = view.findViewById(R.id.userEmail);
         petsContainer = view.findViewById(R.id.petContainer);
@@ -59,6 +60,10 @@ public class ProfilePage extends Fragment {
             showLogoutBottomSheet();
         });
 
+        editProfileImageView.setOnClickListener(v -> {
+            startActivity(new Intent(getActivity(), EditProfilePage.class));
+        });
+
         return view;
     }
 
@@ -75,13 +80,17 @@ public class ProfilePage extends Fragment {
                     .addOnSuccessListener(documentSnapshot -> {
                         if (documentSnapshot.exists()) {
                             String username = documentSnapshot.getString("username");
-                            String profileImageUrl = documentSnapshot.getString("profileImageUrl");
+                            String base64Image = documentSnapshot.getString("profilePictureBase64");
 
                             usernameTextView.setText(username);
 
-                            if (profileImageUrl != null && !profileImageUrl.isEmpty()) {
-                                Glide.with(ProfilePage.this)
-                                        .load(profileImageUrl)
+                            if (base64Image != null && !base64Image.isEmpty()) {
+                                byte[] decodedBytes = Base64.decode(base64Image, Base64.DEFAULT);
+
+                                Glide.with(this)
+                                        .asBitmap()
+                                        .load(decodedBytes)
+                                        .circleCrop()
                                         .into(profileImageView);
                             }
                         }

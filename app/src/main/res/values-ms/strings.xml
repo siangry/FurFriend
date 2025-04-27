@@ -51,4 +51,8 @@
     <string name="areYouSureToLogout">Adakah anda pasti untuk log keluar?</string>
     <string name="yesLogout">Ya, log keluar</string>
     <string name="noStayHere">Tidak, tinggal di sini</string>
+    <string name="editProfile">Edit Profil</string>
+    <string name="saveChanges">Simpan Perubahan</string>
+    <string name="yourProfileHasBeenUpdated">Profil anda telah dikemas kini!</string>
+    <string name="done">Selesai</string>
 </resources>
