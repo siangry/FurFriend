@@ -51,4 +51,8 @@
     <string name="areYouSureToLogout">您确定要退出吗？</string>
     <string name="yesLogout">是的，退出</string>
     <string name="noStayHere">不，留在这里</string>
+    <string name="editProfile">编辑个人资料</string>
+    <string name="saveChanges">保存更改</string>
+    <string name="yourProfileHasBeenUpdated">您的个人资料已更新！</string>
+    <string name="done">完成</string>
 </resources>

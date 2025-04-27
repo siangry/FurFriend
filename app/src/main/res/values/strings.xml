@@ -50,4 +50,8 @@
     <string name="areYouSureToLogout">Are you sure to logout?</string>
     <string name="yesLogout">Yes, logout</string>
     <string name="noStayHere">No, stay here</string>
+    <string name="editProfile">Edit Profile</string>
+    <string name="saveChanges">Save Changes</string>
+    <string name="yourProfileHasBeenUpdated">Your profile has been updated!</string>
+    <string name="done">Done</string>
 </resources>
