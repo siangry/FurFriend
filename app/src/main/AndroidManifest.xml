@@ -13,6 +13,9 @@
         android:theme="@style/Theme.FurFriend"
         tools:targetApi="31">
         <activity
+            android:name=".screen.profile.UpdateSuccessPage"
+            android:exported="false" />
+        <activity
             android:name=".screen.profile.AddPetPage"
             android:exported="false" />
         <activity

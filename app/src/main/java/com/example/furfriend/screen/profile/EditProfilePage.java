@@ -122,8 +122,7 @@ public class EditProfilePage extends AppCompatActivity {
                                     .into(imageViewProfile);
                         }
                     }
-                })
-                .addOnFailureListener(e -> Toast.makeText(EditProfilePage.this, "Failed to load data", Toast.LENGTH_SHORT).show());
+                });
     }
 
     private void chooseImage() {
@@ -173,7 +172,9 @@ public class EditProfilePage extends AppCompatActivity {
                 .update(userUpdates)
                 .addOnSuccessListener(aVoid -> {
                     progressDialog.dismiss();
-                    Toast.makeText(EditProfilePage.this, "Profile updated", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(EditProfilePage.this, UpdateSuccessPage.class);
+                    startActivity(intent);
+                    finish();
                 })
                 .addOnFailureListener(e -> {
                     progressDialog.dismiss();
