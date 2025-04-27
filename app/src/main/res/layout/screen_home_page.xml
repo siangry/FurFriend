@@ -74,7 +74,7 @@
                     android:layout_height="wrap_content"
                     android:contentDescription="@string/seeMore"
                     android:paddingTop="2dp"
-                    android:src="@drawable/ic_see_more" />
+                    android:src="@drawable/ic_see_more_grey" />
             </LinearLayout>
         </LinearLayout>
 
@@ -127,7 +127,7 @@
                     android:layout_height="wrap_content"
                     android:contentDescription="@string/seeMore"
                     android:paddingTop="2dp"
-                    android:src="@drawable/ic_see_more" />
+                    android:src="@drawable/ic_see_more_grey" />
             </LinearLayout>
         </LinearLayout>
 

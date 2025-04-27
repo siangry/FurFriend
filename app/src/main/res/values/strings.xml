@@ -40,4 +40,14 @@
     <string name="seeMore">See more</string>
     <string name="noPetAdded">No pet added</string>
     <string name="noReminderToday">No reminder today</string>
+    <string name="settings">Settings</string>
+    <string name="youDoNotOwnPet">You do not own any pet yet</string>
+    <string name="pushNotification">Push Notification</string>
+    <string name="language">Language</string>
+    <string name="resetPassword">Reset Password</string>
+    <string name="addNewPet">Add New Pet</string>
+    <string name="logout">Log Out</string>
+    <string name="areYouSureToLogout">Are you sure to logout?</string>
+    <string name="yesLogout">Yes, logout</string>
+    <string name="noStayHere">No, stay here</string>
 </resources>

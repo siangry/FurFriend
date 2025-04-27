@@ -41,4 +41,14 @@
     <string name="seeMore">查看更多</string>
     <string name="noPetAdded">没有添加宠物</string>
     <string name="noReminderToday">今天没有提醒</string>
+    <string name="settings">设置</string>
+    <string name="youDoNotOwnPet">您还没有任何宠物</string>
+    <string name="pushNotification">推送通知</string>
+    <string name="language">语言</string>
+    <string name="resetPassword">重置密码</string>
+    <string name="addNewPet">添加新宠物</string>
+    <string name="logout">退出</string>
+    <string name="areYouSureToLogout">您确定要退出吗？</string>
+    <string name="yesLogout">是的，退出</string>
+    <string name="noStayHere">不，留在这里</string>
 </resources>
