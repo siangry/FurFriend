@@ -40,4 +40,23 @@
     <string name="seeMore">See more</string>
     <string name="noPetAdded">No pet added</string>
     <string name="noReminderToday">No reminder today</string>
+    <string name="searchPlaces">Search places…</string>
+    <string name="category">Category</string>
+    <string name="veterinaryCare">Veterinary Care</string>
+    <string name="petStore">Pet Store</string>
+    <string name="petfriendlyCafe">Pet Friendly Cafe</string>
+    <string name="suggestion">Suggestion</string>
+    <string name="openNow">Open Now</string>
+    <string name="closedNow">Closed Now</string>
+    <string name="petRelated">Pet Related</string>
+    <string name="ratingNotAvailable">Rating not available</string>
+    <string name="addressNotAvailable">Address not available</string>
+    <string name="hoursNotAvailable">Hours not available</string>
+    <string name="phoneNotAvailable">Phone not available</string>
+
+
+
+
+
+
 </resources>

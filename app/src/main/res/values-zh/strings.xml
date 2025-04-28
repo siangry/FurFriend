@@ -41,4 +41,18 @@
     <string name="seeMore">查看更多</string>
     <string name="noPetAdded">没有添加宠物</string>
     <string name="noReminderToday">今天没有提醒</string>
+    <string name="searchPlaces">搜索地点。。。</string>
+    <string name="category">类别</string>
+    <string name="veterinaryCare">兽医护理</string>
+    <string name="petStore">宠物商店</string>
+    <string name="petfriendlyCafe">宠物友好咖啡馆</string>
+    <string name="suggestion">推荐</string>
+    <string name="openNow">现已营业</string>
+    <string name="closedNow">现已关门</string>
+    <string name="petRelated">宠物相关</string>
+    <string name="ratingNotAvailable">暂无评级</string>
+    <string name="addressNotAvailable">暂无地址</string>
+    <string name="hoursNotAvailable">暂无营业时间</string>
+    <string name="phoneNotAvailable">暂无联络号码</string>
+
 </resources>

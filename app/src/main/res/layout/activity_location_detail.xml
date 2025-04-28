@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".screen.search.LocationDetail">
+
+    <ImageButton
+        android:id="@+id/backBtn"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:backgroundTint="#00000000"
+        android:background="@null"
+        android:padding="8dp"
+        android:scaleType="centerInside"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_back" />
+
+    <TextView
+        android:id="@+id/locationDetailName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/lexend_semi_bold"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:text="Place Name"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:textSize="22sp"
+        app:layout_constraintStart_toEndOf="@id/backBtn"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toBottomOf="@id/locationDetailName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <ImageView
+                android:id="@+id/locationDetailImg"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="center"
+                android:layout_marginBottom="10dp"
+                tools:srcCompat="@drawable/ic_logo" />
+
+            <TextView
+                android:id="@+id/locationDetailCategory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_paw_orange"
+                android:fontFamily="@font/lexend_regular"
+                android:text="Category"
+                android:textSize="18sp"
+                android:layout_marginBottom="10dp"/>
+
+            <TextView
+                android:id="@+id/locationDetailRating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_paw_orange"
+                android:fontFamily="@font/lexend_regular"
+                android:text="Rating"
+                android:textSize="18sp"
+                android:layout_marginBottom="10dp"/>
+
+            <TextView
+                android:id="@+id/locationDetailAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_paw_orange"
+                android:fontFamily="@font/lexend_regular"
+                android:text="Address"
+                android:textSize="18sp"
+                android:layout_marginBottom="10dp"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp">
+
+                <ImageView
+                    android:id="@+id/openingIcon"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:src="@drawable/ic_paw_orange" />
+
+                <TextView
+                    android:id="@+id/locationDetailOpening"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/openingIcon"
+                    android:layout_marginStart="8dp"
+                    android:layout_alignParentTop="true"
+                    android:text="Open Now"
+                    android:ellipsize="end"
+                    android:maxLines="10"
+                    android:fontFamily="@font/lexend_regular"
+                    android:textSize="18sp"/>
+
+                <ImageView
+                    android:id="@+id/expandIcon"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_toEndOf="@id/locationDetailOpening"
+                    android:layout_alignTop="@id/locationDetailOpening"
+                    android:layout_marginStart="4dp"
+                    android:src="@drawable/ic_expand" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/locationDetailContact"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_paw_orange"
+                android:fontFamily="@font/lexend_regular"
+                android:text="Contact"
+                android:textSize="18sp"
+                android:layout_marginBottom="10dp"/>
+
+            <com.google.android.gms.maps.MapView
+                android:id="@+id/mapView"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="16dp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
