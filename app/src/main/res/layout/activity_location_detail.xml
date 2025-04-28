@@ -113,7 +113,7 @@
                     android:layout_alignParentTop="true"
                     android:text="Open Now"
                     android:ellipsize="end"
-                    android:maxLines="10"
+                    android:maxLines="20"
                     android:fontFamily="@font/lexend_regular"
                     android:textSize="18sp"/>
 

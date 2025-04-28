@@ -157,7 +157,6 @@ public class LocationDetail extends AppCompatActivity implements OnMapReadyCallb
         } else {
             weekdayTextList = null;
             tvOpening.setText(getString(R.string.hoursNotAvailable));
-            tvOpening.setTextColor(ContextCompat.getColor(this, R.color.grey));
         }
 
         if (place.getPhotoMetadatas() != null && !place.getPhotoMetadatas().isEmpty()) {
