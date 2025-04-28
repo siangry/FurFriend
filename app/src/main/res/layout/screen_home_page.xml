@@ -2,7 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
+    android:padding="20dp"
     android:background="@color/white">
 
     <LinearLayout
@@ -74,7 +74,7 @@
                     android:layout_height="wrap_content"
                     android:contentDescription="@string/seeMore"
                     android:paddingTop="2dp"
-                    android:src="@drawable/ic_see_more" />
+                    android:src="@drawable/ic_see_more_grey" />
             </LinearLayout>
         </LinearLayout>
 
@@ -127,7 +127,7 @@
                     android:layout_height="wrap_content"
                     android:contentDescription="@string/seeMore"
                     android:paddingTop="2dp"
-                    android:src="@drawable/ic_see_more" />
+                    android:src="@drawable/ic_see_more_grey" />
             </LinearLayout>
         </LinearLayout>
 

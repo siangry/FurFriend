@@ -54,4 +54,18 @@
     <string name="addressNotAvailable">Tiada alamat</string>
     <string name="hoursNotAvailable">Tiada waktu operasi</string>
     <string name="phoneNotAvailable">Tiada nombor telefon</string>
+    <string name="settings">Tetapan</string>
+    <string name="youDoNotOwnPet">Anda belum memiliki haiwan peliharaan</string>
+    <string name="pushNotification">Pemberitahuan Tolak</string>
+    <string name="language">Bahasa</string>
+    <string name="resetPassword">Tetapkan Semula Kata Laluan</string>
+    <string name="addNewPet">Tambah Haiwan Peliharaan Baharu</string>
+    <string name="logout">Log Keluar</string>
+    <string name="areYouSureToLogout">Adakah anda pasti untuk log keluar?</string>
+    <string name="yesLogout">Ya, log keluar</string>
+    <string name="noStayHere">Tidak, tinggal di sini</string>
+    <string name="editProfile">Edit Profil</string>
+    <string name="saveChanges">Simpan Perubahan</string>
+    <string name="yourProfileHasBeenUpdated">Profil anda telah dikemas kini!</string>
+    <string name="done">Selesai</string>
 </resources>

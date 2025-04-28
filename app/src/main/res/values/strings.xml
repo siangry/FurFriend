@@ -53,10 +53,18 @@
     <string name="addressNotAvailable">Address not available</string>
     <string name="hoursNotAvailable">Hours not available</string>
     <string name="phoneNotAvailable">Phone not available</string>
-
-
-
-
-
-
+    <string name="settings">Settings</string>
+    <string name="youDoNotOwnPet">You do not own any pet yet</string>
+    <string name="pushNotification">Push Notification</string>
+    <string name="language">Language</string>
+    <string name="resetPassword">Reset Password</string>
+    <string name="addNewPet">Add New Pet</string>
+    <string name="logout">Log Out</string>
+    <string name="areYouSureToLogout">Are you sure to logout?</string>
+    <string name="yesLogout">Yes, logout</string>
+    <string name="noStayHere">No, stay here</string>
+    <string name="editProfile">Edit Profile</string>
+    <string name="saveChanges">Save Changes</string>
+    <string name="yourProfileHasBeenUpdated">Your profile has been updated!</string>
+    <string name="done">Done</string>
 </resources>

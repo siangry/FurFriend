@@ -54,5 +54,18 @@
     <string name="addressNotAvailable">暂无地址</string>
     <string name="hoursNotAvailable">暂无营业时间</string>
     <string name="phoneNotAvailable">暂无联络号码</string>
-
+    <string name="settings">设置</string>
+    <string name="youDoNotOwnPet">您还没有任何宠物</string>
+    <string name="pushNotification">推送通知</string>
+    <string name="language">语言</string>
+    <string name="resetPassword">重置密码</string>
+    <string name="addNewPet">添加新宠物</string>
+    <string name="logout">退出</string>
+    <string name="areYouSureToLogout">您确定要退出吗？</string>
+    <string name="yesLogout">是的，退出</string>
+    <string name="noStayHere">不，留在这里</string>
+    <string name="editProfile">编辑个人资料</string>
+    <string name="saveChanges">保存更改</string>
+    <string name="yourProfileHasBeenUpdated">您的个人资料已更新！</string>
+    <string name="done">完成</string>
 </resources>
