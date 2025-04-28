@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.furfriend.FirestoreCollection;
@@ -27,7 +28,7 @@ public class ViewAllPetPage extends AppCompatActivity {
     private TextView textViewNoPet;
     private PetAdapter petAdapter;
     private List<Pet> petList;
-    private ImageView btnBack;
+    private ImageView btnBack, editPetDetailsView;
 
     private FirebaseFirestore db;
     private FirebaseAuth mAuth;
@@ -41,13 +42,14 @@ public class ViewAllPetPage extends AppCompatActivity {
         textViewNoPet = findViewById(R.id.noPetView);
         btnBack = findViewById(R.id.btnBack);
 
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        petList = new ArrayList<>();
-        petAdapter = new PetAdapter(this, petList);
-        recyclerView.setAdapter(petAdapter);
-
         db = FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
+
+        String userId = mAuth.getCurrentUser().getUid();
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        petList = new ArrayList<>();
+        petAdapter = new PetAdapter(this, petList, userId);
+        recyclerView.setAdapter(petAdapter);
 
         fetchPetsFromFirestore();
 
@@ -78,8 +80,11 @@ public class ViewAllPetPage extends AppCompatActivity {
                         String ageUnit = document.getString("ageUnit");
                         String gender = document.getString("gender");
                         String imageBase64 = document.getString("petPictureBase64");
+                        Double weightDouble = document.getDouble("weight");
+                        String petWeight = (weightDouble != null) ? String.valueOf(weightDouble) : "0.0";
 
-                        Pet pet = new Pet(name, type, age, ageUnit, gender, imageBase64);
+                        String petId = document.getId();
+                        Pet pet = new Pet(name, type, age, ageUnit, gender, imageBase64, petWeight, petId);
                         petList.add(pet);
                     }
                     textViewNoPet.setVisibility(View.GONE);
