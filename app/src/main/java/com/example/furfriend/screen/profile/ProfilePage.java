@@ -1,8 +1,10 @@
 package com.example.furfriend.screen.profile;
 
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.util.Base64;
 import android.view.LayoutInflater;
@@ -21,14 +23,18 @@ import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+
+import java.util.Random;
 
 public class ProfilePage extends Fragment {
     private ImageView profileImageView, editProfileImageView;
-    private TextView usernameTextView, emailTextView,logoutTextView;
-    private LinearLayout petsContainer, noPetView,  seeMorePet;
+    private TextView usernameTextView, emailTextView, logoutTextView;
+    private LinearLayout petsContainer, noPetView, seeMorePet;
     private Button addPetButton;
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
+    private int[] backgroundColors;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -102,30 +108,64 @@ public class ProfilePage extends Fragment {
     }
 
     private void loadUserPets() {
+        backgroundColors = new int[]{
+                ContextCompat.getColor(requireContext(), R.color.blue),
+                ContextCompat.getColor(requireContext(), R.color.yellow),
+                ContextCompat.getColor(requireContext(), R.color.pink),
+                ContextCompat.getColor(requireContext(), R.color.green)
+        };
+
         FirebaseUser user = mAuth.getCurrentUser();
         if (user != null) {
             db.collection(FirestoreCollection.USERS)
                     .document(user.getUid())
-                    .collection(FirestoreCollection.PROFILE)
-                    .document(FirestoreCollection.PET)
+                    .collection(FirestoreCollection.PET)
                     .get()
-                    .addOnSuccessListener(documentSnapshot -> {
-                        if (documentSnapshot.exists()) {
+                    .addOnSuccessListener(querySnapshot -> {
+                        if (!querySnapshot.isEmpty()) {
                             noPetView.setVisibility(View.GONE);
+                            petsContainer.setVisibility(View.VISIBLE);
 
-                            String petName = documentSnapshot.getString("petName");
-                            String petType = documentSnapshot.getString("type");
+                            petsContainer.removeAllViews();
 
-                            View petView = LayoutInflater.from(getContext())
-                                    .inflate(android.R.layout.simple_list_item_2, petsContainer, false);
-                            TextView text1 = petView.findViewById(android.R.id.text1);
-                            TextView text2 = petView.findViewById(android.R.id.text2);
+                            for (QueryDocumentSnapshot documentSnapshot : querySnapshot) {
+                                String petName = documentSnapshot.getString("petName");
+                                String petType = documentSnapshot.getString("type");
+                                String imageBase64 = documentSnapshot.getString("petPictureBase64");
 
-                            text1.setText(petName != null ? petName : "Unknown Name");
-                            text2.setText(petType != null ? petType : "Unknown Type");
+                                View petView = LayoutInflater.from(getContext())
+                                        .inflate(R.layout.pet_item, petsContainer, false);
 
-                            petsContainer.addView(petView);
+                                TextView nameTextView = petView.findViewById(R.id.petName);
+                                TextView typeTextView = petView.findViewById(R.id.petType);
+                                ImageView petImageView = petView.findViewById(R.id.petImage);
+
+                                nameTextView.setText(petName != null ? petName : "Unknown Name");
+                                typeTextView.setText(petType != null ? petType : "Unknown Type");
+
+                                if (imageBase64 != null && !imageBase64.isEmpty()) {
+                                    byte[] decodedBytes = Base64.decode(imageBase64, Base64.DEFAULT);
+
+                                    Glide.with(this)
+                                            .asBitmap()
+                                            .load(decodedBytes)
+                                            .circleCrop()
+                                            .into(petImageView);
+                                } else {
+                                    petImageView.setImageResource(R.drawable.ic_animal_image);
+                                }
+
+                                Random random = new Random();
+                                int randomColor = backgroundColors[random.nextInt(backgroundColors.length)];
+                                GradientDrawable backgroundDrawable = new GradientDrawable();
+                                backgroundDrawable.setColor(randomColor);
+                                backgroundDrawable.setCornerRadius(30f);
+                                petView.setBackground(backgroundDrawable);
+
+                                petsContainer.addView(petView);
+                            }
                         } else {
+                            petsContainer.setVisibility(View.GONE);
                             noPetView.setVisibility(View.VISIBLE);
                         }
                     })

@@ -55,4 +55,25 @@
     <string name="saveChanges">保存更改</string>
     <string name="yourProfileHasBeenUpdated">您的个人资料已更新！</string>
     <string name="done">完成</string>
+    <string name="petName">昵称</string>
+    <string name="type">种类</string>
+    <string name="dog">狗</string>
+    <string name="cat">猫</string>
+    <string name="hamster">仓鼠</string>
+    <string name="bird">鸟</string>
+    <string name="fish">鱼</string>
+    <string name="reptile">爬虫类</string>
+    <string name="rabbit">兔子</string>
+    <string name="other">其他</string>
+    <string name="age">年龄</string>
+    <string name="day">天</string>
+    <string name="week">周数</string>
+    <string name="month">月</string>
+    <string name="year">年</string>
+    <string name="gender">性别</string>
+    <string name="weight">重量</string>
+    <string name="kg">kg</string>
+    <string name="add">添加</string>
+    <string name="male">雄性</string>
+    <string name="female">雌性</string>
 </resources>

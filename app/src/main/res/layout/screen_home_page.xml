@@ -2,8 +2,8 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="20dp"
-    android:background="@color/white">
+    android:background="@color/white"
+    android:padding="20dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -78,25 +78,44 @@
             </LinearLayout>
         </LinearLayout>
 
+        <LinearLayout
+            android:id="@+id/noPetView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="@string/youDoNotOwnPet"
+                android:textColor="@color/dark_grey"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
         <HorizontalScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="16dp">
+            android:layout_marginBottom="16dp"
+            android:scrollbars="none">
 
             <LinearLayout
                 android:id="@+id/petListLayout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal" />
+                android:orientation="horizontal"
+                android:padding="8dp" />
         </HorizontalScrollView>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:orientation="horizontal"
-            android:layout_marginTop="20dp">
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -138,6 +157,23 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="16dp"
             android:orientation="vertical" />
+
+        <LinearLayout
+            android:id="@+id/noReminderView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="@string/noReminderToday"
+                android:textColor="@color/dark_grey"
+                android:textSize="18sp" />
+
+        </LinearLayout>
 
     </LinearLayout>
 

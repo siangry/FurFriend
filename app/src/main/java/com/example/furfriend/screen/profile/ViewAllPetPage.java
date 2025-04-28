@@ -4,12 +4,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.furfriend.FirestoreCollection;
 import com.example.furfriend.R;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -24,6 +27,7 @@ public class ViewAllPetPage extends AppCompatActivity {
     private TextView textViewNoPet;
     private PetAdapter petAdapter;
     private List<Pet> petList;
+    private ImageView btnBack;
 
     private FirebaseFirestore db;
     private FirebaseAuth mAuth;
@@ -35,6 +39,7 @@ public class ViewAllPetPage extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.petList);
         textViewNoPet = findViewById(R.id.noPetView);
+        btnBack = findViewById(R.id.btnBack);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         petList = new ArrayList<>();
@@ -45,11 +50,20 @@ public class ViewAllPetPage extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
         fetchPetsFromFirestore();
+
+        findViewById(R.id.btnAddNewPet).setOnClickListener(v -> {
+            startActivity(new Intent(ViewAllPetPage.this, AddPetPage.class));
+        });
+
+        btnBack.setOnClickListener(v -> {
+            getOnBackPressedDispatcher().onBackPressed();
+        });
     }
 
     private void fetchPetsFromFirestore() {
         String userId = mAuth.getCurrentUser().getUid();
-        CollectionReference petsRef = db.collection(FirestoreCollection.USERS).document(userId).collection(FirestoreCollection.PET);
+        CollectionReference petsRef = db.collection(FirestoreCollection.USERS)
+                .document(userId).collection(FirestoreCollection.PET);
 
         petsRef.get().addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
@@ -57,19 +71,20 @@ public class ViewAllPetPage extends AppCompatActivity {
                 if (querySnapshot != null && !querySnapshot.isEmpty()) {
                     petList.clear();
                     for (DocumentSnapshot document : querySnapshot.getDocuments()) {
-                        String name = document.getString("name");
+                        String name = document.getString("petName");
                         String type = document.getString("type");
-                        String age = document.getString("age");
+                        Long ageLong = document.getLong("age");
+                        int age = (ageLong != null) ? ageLong.intValue() : 0;
+                        String ageUnit = document.getString("ageUnit");
                         String gender = document.getString("gender");
-                        String imageBase64 = document.getString("petImage");
+                        String imageBase64 = document.getString("petPictureBase64");
 
-                        Pet pet = new Pet(name, type, age, gender, imageBase64);
+                        Pet pet = new Pet(name, type, age, ageUnit, gender, imageBase64);
                         petList.add(pet);
                     }
                     textViewNoPet.setVisibility(View.GONE);
                     recyclerView.setVisibility(View.VISIBLE);
                 } else {
-                    // No pets
                     textViewNoPet.setVisibility(View.VISIBLE);
                     recyclerView.setVisibility(View.GONE);
                 }
