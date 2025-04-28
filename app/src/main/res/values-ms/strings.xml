@@ -55,4 +55,25 @@
     <string name="saveChanges">Simpan Perubahan</string>
     <string name="yourProfileHasBeenUpdated">Profil anda telah dikemas kini!</string>
     <string name="done">Selesai</string>
+    <string name="petName">Nama Haiwan Peliharaan</string>
+    <string name="type">Jenis</string>
+    <string name="dog">Anjing</string>
+    <string name="cat">Kucing</string>
+    <string name="hamster">Hamster</string>
+    <string name="bird">Burung</string>
+    <string name="fish">Ikan</string>
+    <string name="reptile">Reptilia</string>
+    <string name="rabbit">Arnab</string>
+    <string name="other">Lain-lain</string>
+    <string name="age">Umur</string>
+    <string name="day">Hari</string>
+    <string name="week">Minggu</string>
+    <string name="month">Bulan</string>
+    <string name="year">Tahun</string>
+    <string name="gender">Jantina</string>
+    <string name="weight">Berat Badan</string>
+    <string name="kg">kg</string>
+    <string name="add">Tambah</string>
+    <string name="male">Lelaki</string>
+    <string name="female">Perempuan</string>
 </resources>

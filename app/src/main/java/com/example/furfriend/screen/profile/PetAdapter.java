@@ -1,6 +1,7 @@
 package com.example.furfriend.screen.profile;
 
 import android.content.Context;
+import android.graphics.drawable.GradientDrawable;
 import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,7 +28,6 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.PetViewHolder> {
         this.context = context;
         this.petList = petList;
 
-        // Get color IDs from XML
         backgroundColors = new int[]{
                 ContextCompat.getColor(context, R.color.blue),
                 ContextCompat.getColor(context, R.color.yellow),
@@ -49,7 +49,8 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.PetViewHolder> {
 
         holder.textViewName.setText(pet.getName());
         holder.textViewType.setText(pet.getType());
-        holder.textViewAge.setText(pet.getAge());
+        holder.textViewAge.setText(String.valueOf(pet.getAge()));
+        holder.textViewAgeUnit.setText(pet.getAgeUnit());
         holder.textViewGender.setText(pet.getGender());
 
         String base64Image = pet.getPetImage();
@@ -62,11 +63,16 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.PetViewHolder> {
                     .load(decodedBytes)
                     .circleCrop()
                     .into(holder.imageViewPet);
+        } else {
+            holder.imageViewPet.setImageResource(R.drawable.ic_animal_image);
         }
 
         Random random = new Random();
         int randomColor = backgroundColors[random.nextInt(backgroundColors.length)];
-        holder.itemView.setBackgroundColor(randomColor);
+        GradientDrawable backgroundDrawable = new GradientDrawable();
+        backgroundDrawable.setColor(randomColor);
+        backgroundDrawable.setCornerRadius(100f);
+        holder.itemView.setBackground(backgroundDrawable);
     }
 
     @Override
@@ -76,7 +82,7 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.PetViewHolder> {
 
     public static class PetViewHolder extends RecyclerView.ViewHolder {
         ImageView imageViewPet, imageEditPet;
-        TextView textViewName, textViewType, textViewAge, textViewGender;
+        TextView textViewName, textViewType, textViewAge, textViewAgeUnit, textViewGender;
 
         public PetViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -84,6 +90,7 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.PetViewHolder> {
             textViewName = itemView.findViewById(R.id.petName);
             textViewType = itemView.findViewById(R.id.petType);
             textViewAge = itemView.findViewById(R.id.petAge);
+            textViewAgeUnit = itemView.findViewById(R.id.petAgeUnit);
             textViewGender = itemView.findViewById(R.id.petGender);
             imageEditPet = itemView.findViewById(R.id.editPet);
         }
