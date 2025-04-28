@@ -7,17 +7,21 @@ public class Pet {
     private String ageUnit;
     private String gender;
     private String petImage;
+    private String weight;
+    private String petId;
 
     public Pet() {
     }
 
-    public Pet(String name, String type, int age, String ageUnit, String gender, String petImage) {
+    public Pet(String name, String type, int age, String ageUnit, String gender, String petImage, String weight, String petId) {
         this.name = name;
         this.type = type;
         this.age = age;
         this.ageUnit = ageUnit;
         this.gender = gender;
         this.petImage = petImage;
+        this.weight = weight;
+        this.petId = petId;
     }
 
     public String getName() {
@@ -42,5 +46,13 @@ public class Pet {
 
     public String getPetImage() {
         return petImage;
+    }
+
+    public String getWeight() {
+        return weight;
+    }
+
+    public String getPetId() {
+        return petId;
     }
 }

@@ -1,6 +1,7 @@
 package com.example.furfriend.screen.profile;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.GradientDrawable;
 import android.util.Base64;
 import android.view.LayoutInflater;
@@ -22,11 +23,13 @@ import java.util.Random;
 public class PetAdapter extends RecyclerView.Adapter<PetAdapter.PetViewHolder> {
     private Context context;
     private List<Pet> petList;
+    private String userId;
     private int[] backgroundColors;
 
-    public PetAdapter(Context context, List<Pet> petList) {
+    public PetAdapter(Context context, List<Pet> petList, String userId) {
         this.context = context;
         this.petList = petList;
+        this.userId = userId;
 
         backgroundColors = new int[]{
                 ContextCompat.getColor(context, R.color.blue),
@@ -52,6 +55,7 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.PetViewHolder> {
         holder.textViewAge.setText(String.valueOf(pet.getAge()));
         holder.textViewAgeUnit.setText(pet.getAgeUnit());
         holder.textViewGender.setText(pet.getGender());
+        holder.textViewWeight.setText(pet.getWeight());
 
         String base64Image = pet.getPetImage();
 
@@ -66,6 +70,14 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.PetViewHolder> {
         } else {
             holder.imageViewPet.setImageResource(R.drawable.ic_animal_image);
         }
+
+        holder.imageEditPet = holder.itemView.findViewById(R.id.editPet);
+        holder.imageEditPet.setOnClickListener(v -> {
+            Intent intent = new Intent(context, EditPetDetailsPage.class);
+            intent.putExtra("userId", userId);
+            intent.putExtra("petId", pet.getPetId());
+            context.startActivity(intent);
+        });
 
         Random random = new Random();
         int randomColor = backgroundColors[random.nextInt(backgroundColors.length)];
@@ -82,7 +94,7 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.PetViewHolder> {
 
     public static class PetViewHolder extends RecyclerView.ViewHolder {
         ImageView imageViewPet, imageEditPet;
-        TextView textViewName, textViewType, textViewAge, textViewAgeUnit, textViewGender;
+        TextView textViewName, textViewType, textViewAge, textViewAgeUnit, textViewGender, textViewWeight;
 
         public PetViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -92,6 +104,7 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.PetViewHolder> {
             textViewAge = itemView.findViewById(R.id.petAge);
             textViewAgeUnit = itemView.findViewById(R.id.petAgeUnit);
             textViewGender = itemView.findViewById(R.id.petGender);
+            textViewWeight = itemView.findViewById(R.id.petWeight);
             imageEditPet = itemView.findViewById(R.id.editPet);
         }
     }
