@@ -76,4 +76,15 @@
     <string name="add">Tambah</string>
     <string name="male">Lelaki</string>
     <string name="female">Perempuan</string>
+    <string name="removePet">Keluarkan Haiwan Peliharaan</string>
+    <string name="areYouSureToRemove">Adakah anda pasti akan mengeluarkan?</string>
+    <string name="yesRemove">Ya, keluarkan</string>
+    <string name="noCancel">Tidak, batalkan</string>
+    <string name="english">Inggeris</string>
+    <string name="chinese">Cina</string>
+    <string name="malay">Melayu</string>
+    <string name="changeLanguage">Tukar Bahasa</string>
+    <string name="currentPassword">Kata Laluan Semasa</string>
+    <string name="newPassword">Kata Laluan Baharu</string>
+    <string name="confirmPassword">Sahkan Kata Laluan</string>
 </resources>

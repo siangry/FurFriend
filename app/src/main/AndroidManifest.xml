@@ -13,6 +13,9 @@
         android:theme="@style/Theme.FurFriend"
         tools:targetApi="31">
         <activity
+            android:name=".screen.profile.ResetPasswordPage"
+            android:exported="false" />
+        <activity
             android:name=".screen.profile.EditPetDetailsPage"
             android:exported="false" />
         <activity

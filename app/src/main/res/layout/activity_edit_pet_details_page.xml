@@ -23,7 +23,7 @@
                 android:src="@drawable/ic_back_button" />
 
             <TextView
-                android:id="@+id/petName"
+                android:id="@+id/petNameTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
@@ -230,6 +230,18 @@
             android:textColor="@color/white"
             android:textSize="20sp"
             android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/removePet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/removePet"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/red"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"/>
     </LinearLayout>
 
 </ScrollView>

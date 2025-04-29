@@ -5,11 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.util.Base64;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.HashMap;
@@ -18,13 +21,14 @@ import java.util.Map;
 import com.bumptech.glide.Glide;
 import com.example.furfriend.FirestoreCollection;
 import com.example.furfriend.R;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
 
 public class EditPetDetailsPage extends AppCompatActivity {
 
     private ImageView animalImage, btnBack;
+    private TextView petNameTitle, removePetTextView;
     private EditText showPetName, showAge, showWeight;
     private Spinner showTypeSpinner, showAgeSpinner, showGenderSpinner;
     private Button btnSaveChanges;
@@ -37,6 +41,7 @@ public class EditPetDetailsPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_pet_details_page);
 
+        petNameTitle = findViewById(R.id.petNameTitle);
         animalImage = findViewById(R.id.animalImage);
         showPetName = findViewById(R.id.showPetName);
         showAge = findViewById(R.id.showAge);
@@ -46,14 +51,22 @@ public class EditPetDetailsPage extends AppCompatActivity {
         showGenderSpinner = findViewById(R.id.showGenderSpinner);
         btnSaveChanges = findViewById(R.id.btnSaveChanges);
         btnBack = findViewById(R.id.btnBack);
+        removePetTextView = findViewById(R.id.removePet);
 
-        ArrayAdapter<String> typeAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, new String[]{"Dog", "Cat", "Bird"});
+        String[] types = {getString(R.string.dog), getString(R.string.cat), getString(R.string.hamster), getString(R.string.rabbit), getString(R.string.bird), getString(R.string.fish), getString(R.string.reptile), getString(R.string.other)};
+        String[] ageUnit = {getString(R.string.day), getString(R.string.week), getString(R.string.month), getString(R.string.year)};
+        String[] gender = {getString(R.string.male), getString(R.string.female)};
+
+        ArrayAdapter<String> typeAdapter = new ArrayAdapter<>(this, R.layout.spinner_item, types);
+        typeAdapter.setDropDownViewResource(R.layout.spinner_option_item);
         showTypeSpinner.setAdapter(typeAdapter);
 
-        ArrayAdapter<String> ageUnitAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, new String[]{"Months", "Years"});
+        ArrayAdapter<String> ageUnitAdapter = new ArrayAdapter<>(this, R.layout.spinner_item, ageUnit);
+        ageUnitAdapter.setDropDownViewResource(R.layout.spinner_option_item);
         showAgeSpinner.setAdapter(ageUnitAdapter);
 
-        ArrayAdapter<String> genderAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, new String[]{"Male", "Female"});
+        ArrayAdapter<String> genderAdapter = new ArrayAdapter<>(this, R.layout.spinner_item, gender);
+        genderAdapter.setDropDownViewResource(R.layout.spinner_option_item);
         showGenderSpinner.setAdapter(genderAdapter);
 
         userId = getIntent().getStringExtra("userId");
@@ -68,6 +81,9 @@ public class EditPetDetailsPage extends AppCompatActivity {
         });
         btnSaveChanges.setOnClickListener(v -> {
             saveChanges();
+        });
+        removePetTextView.setOnClickListener(v -> {
+            showRemoveBottomSheet();
         });
 
     }
@@ -90,6 +106,7 @@ public class EditPetDetailsPage extends AppCompatActivity {
                         String petWeight = (weightDouble != null) ? String.valueOf(weightDouble) : "0.0";
                         String imageBase64 = documentSnapshot.getString("petPictureBase64");
 
+                        petNameTitle.setText(petName != null ? petName : "");
                         showPetName.setText(petName != null ? petName : "");
                         showAge.setText(String.valueOf(age));
                         showWeight.setText(petWeight);
@@ -148,7 +165,6 @@ public class EditPetDetailsPage extends AppCompatActivity {
         updatedData.put("gender", updatedGender);
         updatedData.put("weight", Double.parseDouble(updatedWeight));
 
-
         DocumentReference petRef = db.collection(FirestoreCollection.USERS)
                 .document(userId)
                 .collection(FirestoreCollection.PET)
@@ -165,4 +181,52 @@ public class EditPetDetailsPage extends AppCompatActivity {
                     Toast.makeText(EditPetDetailsPage.this, "Failed to save changes.", Toast.LENGTH_SHORT).show();
                 });
     }
+
+    private void showRemoveBottomSheet() {
+        if (isFinishing()) return;
+
+        BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(this);
+        View sheetView = LayoutInflater.from(this).inflate(R.layout.remove_pet_bottom_sheet, null);
+        if (sheetView == null) return;
+
+        bottomSheetDialog.setContentView(sheetView);
+
+        Button confirmDelete = sheetView.findViewById(R.id.btnRemove);
+        TextView cancelDelete = sheetView.findViewById(R.id.btnCancel);
+
+        confirmDelete.setOnClickListener(v -> {
+            bottomSheetDialog.dismiss();
+            deletePet();
+        });
+
+        cancelDelete.setOnClickListener(v -> {
+            bottomSheetDialog.dismiss();
+        });
+
+        bottomSheetDialog.show();
+    }
+
+    private void deletePet() {
+        final ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Deleting pet...");
+        progressDialog.show();
+
+        DocumentReference petRef = db.collection(FirestoreCollection.USERS)
+                .document(userId)
+                .collection(FirestoreCollection.PET)
+                .document(petId);
+
+        petRef.delete()
+                .addOnSuccessListener(aVoid -> {
+                    progressDialog.dismiss();
+                    Toast.makeText(EditPetDetailsPage.this, "Pet deleted successfully", Toast.LENGTH_SHORT).show();
+                    finish();  // Close the activity and go back to the previous screen
+                })
+                .addOnFailureListener(e -> {
+                    progressDialog.dismiss();
+                    Toast.makeText(EditPetDetailsPage.this, "Failed to delete pet", Toast.LENGTH_SHORT).show();
+                });
+    }
+
+
 }

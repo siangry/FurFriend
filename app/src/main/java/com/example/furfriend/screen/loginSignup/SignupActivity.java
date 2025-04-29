@@ -133,6 +133,4 @@ public class SignupActivity extends AppCompatActivity {
     interface OnUsernameCheckListener {
         void onCheck(boolean exists);
     }
-
-
 }
