@@ -7,9 +7,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 
+import com.example.furfriend.BaseActivity;
 import com.example.furfriend.R;
 
-public class UpdateSuccessPage extends AppCompatActivity {
+public class UpdateSuccessPage extends BaseActivity {
 
     private Button buttonGoToProfile;
 

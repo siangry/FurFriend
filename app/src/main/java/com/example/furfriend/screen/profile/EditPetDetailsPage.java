@@ -19,13 +19,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.bumptech.glide.Glide;
-import com.example.furfriend.FirestoreCollection;
+import com.example.furfriend.BaseActivity;
+import com.example.furfriend.Constants;
 import com.example.furfriend.R;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-public class EditPetDetailsPage extends AppCompatActivity {
+public class EditPetDetailsPage extends BaseActivity {
 
     private ImageView animalImage, btnBack;
     private TextView petNameTitle, removePetTextView;
@@ -89,9 +90,9 @@ public class EditPetDetailsPage extends AppCompatActivity {
     }
 
     private void fetchPetDetails() {
-        db.collection(FirestoreCollection.USERS)
+        db.collection(Constants.USERS)
                 .document(userId)
-                .collection(FirestoreCollection.PET)
+                .collection(Constants.PET)
                 .document(petId)
                 .get()
                 .addOnSuccessListener(documentSnapshot -> {
@@ -165,9 +166,9 @@ public class EditPetDetailsPage extends AppCompatActivity {
         updatedData.put("gender", updatedGender);
         updatedData.put("weight", Double.parseDouble(updatedWeight));
 
-        DocumentReference petRef = db.collection(FirestoreCollection.USERS)
+        DocumentReference petRef = db.collection(Constants.USERS)
                 .document(userId)
-                .collection(FirestoreCollection.PET)
+                .collection(Constants.PET)
                 .document(petId);
 
         petRef.update(updatedData)
@@ -211,9 +212,9 @@ public class EditPetDetailsPage extends AppCompatActivity {
         progressDialog.setMessage("Deleting pet...");
         progressDialog.show();
 
-        DocumentReference petRef = db.collection(FirestoreCollection.USERS)
+        DocumentReference petRef = db.collection(Constants.USERS)
                 .document(userId)
-                .collection(FirestoreCollection.PET)
+                .collection(Constants.PET)
                 .document(petId);
 
         petRef.delete()

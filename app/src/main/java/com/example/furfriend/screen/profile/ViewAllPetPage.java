@@ -11,7 +11,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.furfriend.FirestoreCollection;
+import com.example.furfriend.BaseActivity;
+import com.example.furfriend.Constants;
 import com.example.furfriend.R;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -23,7 +24,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ViewAllPetPage extends AppCompatActivity {
+public class ViewAllPetPage extends BaseActivity {
     private RecyclerView recyclerView;
     private TextView textViewNoPet;
     private PetAdapter petAdapter;
@@ -64,8 +65,8 @@ public class ViewAllPetPage extends AppCompatActivity {
 
     private void fetchPetsFromFirestore() {
         String userId = mAuth.getCurrentUser().getUid();
-        CollectionReference petsRef = db.collection(FirestoreCollection.USERS)
-                .document(userId).collection(FirestoreCollection.PET);
+        CollectionReference petsRef = db.collection(Constants.USERS)
+                .document(userId).collection(Constants.PET);
 
         petsRef.get().addOnCompleteListener(task -> {
             if (task.isSuccessful()) {

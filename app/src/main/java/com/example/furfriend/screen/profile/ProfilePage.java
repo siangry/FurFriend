@@ -16,9 +16,14 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.example.furfriend.FirestoreCollection;
+import com.example.furfriend.Constants;
 import com.example.furfriend.R;
 import com.example.furfriend.screen.loginSignup.LoginActivity;
+import com.example.furfriend.screen.profile.AddPetPage;
+import com.example.furfriend.screen.profile.ChangeLanguagePage;
+import com.example.furfriend.screen.profile.EditProfilePage;
+import com.example.furfriend.screen.profile.ResetPasswordPage;
+import com.example.furfriend.screen.profile.ViewAllPetPage;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -28,7 +33,7 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import java.util.Random;
 
 public class ProfilePage extends Fragment {
-    private ImageView profileImageView, editProfileImageView, resetPassImageView;
+    private ImageView profileImageView, editProfileImageView, resetPassImageView, changeLangImageView;
     private TextView usernameTextView, emailTextView, logoutTextView;
     private LinearLayout petsContainer, noPetView, seeMorePet;
     private Button addPetButton;
@@ -51,6 +56,7 @@ public class ProfilePage extends Fragment {
         addPetButton = view.findViewById(R.id.btnAddPet);
         logoutTextView = view.findViewById(R.id.logout);
         resetPassImageView = view.findViewById(R.id.resetPasswordProfile);
+        changeLangImageView = view.findViewById(R.id.changeLang);
 
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
@@ -78,6 +84,10 @@ public class ProfilePage extends Fragment {
             startActivity(new Intent(getActivity(), ResetPasswordPage.class));
         });
 
+        changeLangImageView.setOnClickListener(v -> {
+            startActivity(new Intent(getActivity(), ChangeLanguagePage.class));
+        });
+
         return view;
     }
 
@@ -87,9 +97,9 @@ public class ProfilePage extends Fragment {
             emailTextView.setText(user.getEmail());
             String uid = user.getUid();
 
-            db.collection(FirestoreCollection.USERS)
-                    .document(uid).collection(FirestoreCollection.PROFILE)
-                    .document(FirestoreCollection.USER_DETAILS)
+            db.collection(Constants.USERS)
+                    .document(uid).collection(Constants.PROFILE)
+                    .document(Constants.USER_DETAILS)
                     .get()
                     .addOnSuccessListener(documentSnapshot -> {
                         if (documentSnapshot.exists()) {
@@ -122,9 +132,9 @@ public class ProfilePage extends Fragment {
 
         FirebaseUser user = mAuth.getCurrentUser();
         if (user != null) {
-            db.collection(FirestoreCollection.USERS)
+            db.collection(Constants.USERS)
                     .document(user.getUid())
-                    .collection(FirestoreCollection.PET)
+                    .collection(Constants.PET)
                     .get()
                     .addOnSuccessListener(querySnapshot -> {
                         if (!querySnapshot.isEmpty()) {
