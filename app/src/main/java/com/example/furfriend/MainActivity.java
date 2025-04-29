@@ -11,7 +11,7 @@ import com.example.furfriend.databinding.ActivityMainBinding;
 import com.example.furfriend.screen.CalendarPage;
 import com.example.furfriend.screen.home.HomePage;
 import com.example.furfriend.screen.profile.ProfilePage;
-import com.example.furfriend.screen.SearchPage;
+import com.example.furfriend.screen.search.SearchPage;
 import com.example.furfriend.screen.SocialPage;
 
 

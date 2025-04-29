@@ -87,4 +87,17 @@
     <string name="currentPassword">Kata Laluan Semasa</string>
     <string name="newPassword">Kata Laluan Baharu</string>
     <string name="confirmPassword">Sahkan Kata Laluan</string>
+    <string name="searchPlaces">Cari tempat…</string>
+    <string name="category">Kategori</string>
+    <string name="veterinaryCare">Penjagaan Veterinar</string>
+    <string name="petStore">Kafe Mesra Haiwan Kesayangan</string>
+    <string name="petfriendlyCafe">Kafe Mesra Haiwan Peliharaan</string>
+    <string name="suggestion">Cadangan</string>
+    <string name="openNow">Buka Sekarang</string>
+    <string name="closedNow">Ditutup Sekarang</string>
+    <string name="petRelated">Berkaitan Haiwan Peliharaan</string>
+    <string name="ratingNotAvailable">Tiada penarafan</string>
+    <string name="addressNotAvailable">Tiada alamat</string>
+    <string name="hoursNotAvailable">Tiada waktu operasi</string>
+    <string name="phoneNotAvailable">Tiada nombor telefon</string>
 </resources>
