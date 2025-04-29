@@ -1,34 +1,37 @@
 package com.example.furfriend.screen.profile;
 
+import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.drawable.GradientDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Base64;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Switch;
 import android.widget.TextView;
+import android.Manifest;
 
 import com.bumptech.glide.Glide;
 import com.example.furfriend.Constants;
+
 import com.example.furfriend.R;
 import com.example.furfriend.screen.loginSignup.LoginActivity;
-import com.example.furfriend.screen.profile.AddPetPage;
-import com.example.furfriend.screen.profile.ChangeLanguagePage;
-import com.example.furfriend.screen.profile.EditProfilePage;
-import com.example.furfriend.screen.profile.ResetPasswordPage;
-import com.example.furfriend.screen.profile.ViewAllPetPage;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.Random;
 
@@ -37,6 +40,7 @@ public class ProfilePage extends Fragment {
     private TextView usernameTextView, emailTextView, logoutTextView;
     private LinearLayout petsContainer, noPetView, seeMorePet;
     private Button addPetButton;
+    private Switch pushNotiSwitch;
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
     private int[] backgroundColors;
@@ -57,6 +61,7 @@ public class ProfilePage extends Fragment {
         logoutTextView = view.findViewById(R.id.logout);
         resetPassImageView = view.findViewById(R.id.resetPasswordProfile);
         changeLangImageView = view.findViewById(R.id.changeLang);
+        pushNotiSwitch = view.findViewById(R.id.btnPushNoti);
 
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
@@ -86,6 +91,23 @@ public class ProfilePage extends Fragment {
 
         changeLangImageView.setOnClickListener(v -> {
             startActivity(new Intent(getActivity(), ChangeLanguagePage.class));
+        });
+
+        pushNotiSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                    if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.POST_NOTIFICATIONS)
+                            != PackageManager.PERMISSION_GRANTED) {
+                        requestPermissions(new String[]{Manifest.permission.POST_NOTIFICATIONS}, 1001);
+                    } else {
+                        enableNotifications();
+                    }
+                } else {
+                    enableNotifications();
+                }
+            } else {
+                disableNotifications();
+            }
         });
 
         return view;
@@ -190,7 +212,6 @@ public class ProfilePage extends Fragment {
         }
     }
 
-
     private void showLogoutBottomSheet() {
         if (getContext() == null) return;
 
@@ -219,6 +240,34 @@ public class ProfilePage extends Fragment {
         });
 
         bottomSheetDialog.show();
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == 1001 && grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            enableNotifications();
+        } else {
+            pushNotiSwitch.setChecked(false);
+        }
+    }
+
+    public void enableNotifications() {
+        FirebaseMessaging.getInstance().subscribeToTopic("general")
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        Log.d("FCM", "Subscribed to notifications");
+                    }
+                });
+    }
+
+    public void disableNotifications() {
+        FirebaseMessaging.getInstance().unsubscribeFromTopic("general")
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        Log.d("FCM", "Unsubscribed from notifications");
+                    }
+                });
     }
 
 }
