@@ -9,16 +9,19 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.furfriend.MainActivity;
 import com.example.furfriend.R;
+import com.example.furfriend.screen.profile.ResetPasswordPage;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginActivity extends AppCompatActivity {
-    EditText email, password;
-    Button loginBtn;
-    FirebaseAuth mAuth;
+    private EditText email, password;
+    private TextView goSignUp;
+    private Button loginBtn;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +32,7 @@ public class LoginActivity extends AppCompatActivity {
         email = findViewById(R.id.emailEditText);
         password = findViewById(R.id.passwordEditText);
         loginBtn = findViewById(R.id.btnLogin);
+        goSignUp = findViewById(R.id.goToSignUp);
 
         TextWatcher watcher = new TextWatcher() {
             public void afterTextChanged(Editable s) {
@@ -59,7 +63,7 @@ public class LoginActivity extends AppCompatActivity {
                     });
         });
 
-        findViewById(R.id.goToSignUp).setOnClickListener(v -> {
+        goSignUp.setOnClickListener(v -> {
             startActivity(new Intent(LoginActivity.this, SignupActivity.class));
         });
     }

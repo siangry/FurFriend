@@ -76,4 +76,15 @@
     <string name="add">添加</string>
     <string name="male">雄性</string>
     <string name="female">雌性</string>
+    <string name="removePet">移除宠物</string>
+    <string name="areYouSureToRemove">您确定要删除吗？</string>
+    <string name="yesRemove">是的，删除</string>
+    <string name="noCancel">不，取消</string>
+    <string name="english">英文</string>
+    <string name="chinese">中文</string>
+    <string name="malay">马来文</string>
+    <string name="changeLanguage">更改语言</string>
+    <string name="currentPassword">当前密码</string>
+    <string name="newPassword">新密码</string>
+    <string name="confirmPassword">确认密码</string>
 </resources>

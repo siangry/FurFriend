@@ -28,7 +28,7 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import java.util.Random;
 
 public class ProfilePage extends Fragment {
-    private ImageView profileImageView, editProfileImageView;
+    private ImageView profileImageView, editProfileImageView, resetPassImageView;
     private TextView usernameTextView, emailTextView, logoutTextView;
     private LinearLayout petsContainer, noPetView, seeMorePet;
     private Button addPetButton;
@@ -50,6 +50,7 @@ public class ProfilePage extends Fragment {
         seeMorePet = view.findViewById(R.id.seeMorePets);
         addPetButton = view.findViewById(R.id.btnAddPet);
         logoutTextView = view.findViewById(R.id.logout);
+        resetPassImageView = view.findViewById(R.id.resetPasswordProfile);
 
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
@@ -71,6 +72,10 @@ public class ProfilePage extends Fragment {
 
         seeMorePet.setOnClickListener(v -> {
             startActivity(new Intent(getActivity(), ViewAllPetPage.class));
+        });
+
+        resetPassImageView.setOnClickListener(v -> {
+            startActivity(new Intent(getActivity(), ResetPasswordPage.class));
         });
 
         return view;
