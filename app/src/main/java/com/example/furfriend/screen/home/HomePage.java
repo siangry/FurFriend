@@ -16,10 +16,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.example.furfriend.FirestoreCollection;
+import com.example.furfriend.Constants;
 import com.example.furfriend.R;
-import com.example.furfriend.screen.loginSignup.LoginActivity;
-import com.example.furfriend.screen.loginSignup.SignupActivity;
 import com.example.furfriend.screen.profile.ViewAllPetPage;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -63,9 +61,9 @@ public class HomePage extends Fragment {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
             String uid = user.getUid();
-            db.collection(FirestoreCollection.USERS)
-                    .document(uid).collection(FirestoreCollection.PROFILE)
-                    .document(FirestoreCollection.USER_DETAILS)
+            db.collection(Constants.USERS)
+                    .document(uid).collection(Constants.PROFILE)
+                    .document(Constants.USER_DETAILS)
                     .get()
                     .addOnSuccessListener(documentSnapshot -> {
                         if (documentSnapshot.exists()) {
@@ -107,9 +105,9 @@ public class HomePage extends Fragment {
         };
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null) {
-            db.collection(FirestoreCollection.USERS)
+            db.collection(Constants.USERS)
                     .document(currentUser.getUid())
-                    .collection(FirestoreCollection.PET)
+                    .collection(Constants.PET)
                     .get()
                     .addOnSuccessListener(querySnapshot -> {
                         if (!querySnapshot.isEmpty()) {
@@ -173,9 +171,9 @@ public class HomePage extends Fragment {
     private void fetchTodayReminders() {
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
         if (currentUser != null) {
-            db.collection(FirestoreCollection.USERS)
+            db.collection(Constants.USERS)
                     .document(currentUser.getUid())
-                    .collection(FirestoreCollection.REMINDER)
+                    .collection(Constants.REMINDER)
                     .whereEqualTo("userId", Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid())
                     .whereEqualTo("date", getTodayDate())
                     .get()

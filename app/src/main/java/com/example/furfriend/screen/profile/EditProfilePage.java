@@ -20,7 +20,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.example.furfriend.FirestoreCollection;
+import com.example.furfriend.BaseActivity;
+import com.example.furfriend.Constants;
 import com.example.furfriend.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -31,7 +32,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class EditProfilePage extends AppCompatActivity {
+public class EditProfilePage extends BaseActivity {
 
     private ImageView imageViewProfile, uploadProfileImage, backButton;
     private EditText editTextUsername;
@@ -98,9 +99,9 @@ public class EditProfilePage extends AppCompatActivity {
     }
 
     private void loadUserData() {
-        db.collection(FirestoreCollection.USERS)
-                .document(userId).collection(FirestoreCollection.PROFILE)
-                .document(FirestoreCollection.USER_DETAILS)
+        db.collection(Constants.USERS)
+                .document(userId).collection(Constants.PROFILE)
+                .document(Constants.USER_DETAILS)
                 .get()
                 .addOnSuccessListener(documentSnapshot -> {
                     if (documentSnapshot.exists()) {
@@ -150,9 +151,9 @@ public class EditProfilePage extends AppCompatActivity {
             userUpdates.put("profilePictureBase64", base64Image);
         }
 
-        db.collection(FirestoreCollection.USERS)
-                .document(userId).collection(FirestoreCollection.PROFILE)
-                .document(FirestoreCollection.USER_DETAILS)
+        db.collection(Constants.USERS)
+                .document(userId).collection(Constants.PROFILE)
+                .document(Constants.USER_DETAILS)
                 .update(userUpdates)
                 .addOnSuccessListener(aVoid -> {
                     progressDialog.dismiss();

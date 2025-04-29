@@ -11,13 +11,14 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.furfriend.BaseActivity;
 import com.example.furfriend.R;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class ResetPasswordPage extends AppCompatActivity {
+public class ResetPasswordPage extends BaseActivity {
 
     private ImageView btnBack;
     private EditText etCurrentPassword, etNewPassword, etConfirmPassword;
@@ -61,6 +62,10 @@ public class ResetPasswordPage extends AppCompatActivity {
             String currentPass = etCurrentPassword.getText().toString().trim();
             String newPass = etNewPassword.getText().toString().trim();
             reauthenticateAndChangePassword(currentPass, newPass);
+        });
+
+        btnBack.setOnClickListener(v -> {
+            getOnBackPressedDispatcher().onBackPressed();
         });
     }
 

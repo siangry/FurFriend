@@ -10,6 +10,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import com.example.furfriend.BaseActivity;
 import com.example.furfriend.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -30,7 +31,7 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
 
-public class LocationDetail extends AppCompatActivity implements OnMapReadyCallback {
+public class LocationDetail extends BaseActivity implements OnMapReadyCallback {
 
     private ImageView locationImage, openingIcon, expandIcon;
     private TextView tvName, tvAddress, tvPhone, tvCategory, tvRating, tvOpening;

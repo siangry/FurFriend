@@ -20,7 +20,8 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.example.furfriend.FirestoreCollection;
+import com.example.furfriend.BaseActivity;
+import com.example.furfriend.Constants;
 import com.example.furfriend.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -30,7 +31,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class AddPetPage extends AppCompatActivity {
+public class AddPetPage extends BaseActivity {
 
     private FirebaseFirestore db;
     private FirebaseAuth mAuth;
@@ -142,9 +143,9 @@ public class AddPetPage extends AppCompatActivity {
             pet.put("petPictureBase64", base64Image);
         }
 
-        db.collection(FirestoreCollection.USERS)
+        db.collection(Constants.USERS)
                 .document(userId)
-                .collection(FirestoreCollection.PET)
+                .collection(Constants.PET)
                 .add(pet)
                 .addOnSuccessListener(documentReference -> {
                     Toast.makeText(AddPetPage.this, "Pet added successfully!", Toast.LENGTH_SHORT).show();
