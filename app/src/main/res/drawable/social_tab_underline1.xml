@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Selected state: show underline -->
+    <item android:state_selected="true">
+        <layer-list>
+            <!-- Transparent background -->
+            <item>
+                <shape android:shape="rectangle">
+                    <solid android:color="@android:color/transparent" />
+                </shape>
+            </item>
+
+            <!-- Bottom underline -->
+            <item
+                android:gravity="bottom"
+                android:height="2dp">
+                <shape android:shape="rectangle">
+                    <solid android:color="#FCAB4C" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+
+    <!-- Default state: no underline -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@android:color/transparent"/>
+        </shape>
+    </item>
+
+</selector>

@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="8dp"
+    android:fontFamily="@font/lexend_bold"
+    android:background="@color/white">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Header -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="left">
+
+                <ImageButton
+                    android:id="@+id/btn_social_return"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/ic_social_return_icon"
+                    android:background="@null"
+                    android:contentDescription="Back" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_gravity="center"
+                    android:text="Profile"
+                    android:textSize="22sp"
+                    android:fontFamily="@font/lexend_bold"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/btn_social_profile"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_social_profile_icon2"
+                    android:background="@null"
+                    android:contentDescription="Profile" />
+
+                <ImageButton
+                    android:id="@+id/btn_social_search"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_social_search_icon"
+                    android:background="@null"
+                    android:contentDescription="Search" />
+
+                <ImageButton
+                    android:id="@+id/btn_social_notification"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_social_noti_icon"
+                    android:background="@null"
+                    android:contentDescription="Notifications" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <!-- Profile Section -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <!-- Background Rounded Rectangle -->
+            <LinearLayout
+                android:id="@+id/social_profile_background"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:background="@drawable/social_profile_bg"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- Username -->
+                <TextView
+                    android:id="@+id/social_profile_username"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="60dp"
+                    android:gravity="center"
+                    android:text="jeonghaniyoo_n"
+                    android:textColor="@android:color/black"
+                    android:fontFamily="@font/lexend_bold"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <!-- Personalized Text -->
+                <TextView
+                    android:id="@+id/social_profile_personalized_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:text="It's okay, your world is precious\nAnd precious just as you are right now"
+                    android:textColor="@android:color/darker_gray"
+                    android:fontFamily="@font/lexend_bold"
+                    android:textSize="14sp" />
+
+                <!-- Follow Button (Visible for other users) -->
+                <Button
+                    android:id="@+id/btn_social_profile_follow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="8dp"
+                    android:backgroundTint="@android:color/holo_orange_light"
+                    android:text="Follow"
+                    android:textColor="@android:color/white"
+                    android:visibility="gone" />
+
+                <!-- Tabs: My Posts and Likes -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:padding="8dp">
+
+                    <TextView
+                        android:id="@+id/social_profile_my_posts"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:background="@drawable/social_tab_underline1"
+                        android:text="My posts"
+                        android:fontFamily="@font/lexend_bold"
+                        android:textColor="@color/social_profile_tab"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/social_profile_likes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/social_tab_underline1"
+                        android:text="Likes"
+                        android:fontFamily="@font/lexend_bold"
+                        android:textColor="@color/social_profile_tab"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                    <!-- Content: Posts or Likes -->
+                    <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_social_profile_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"/>
+
+
+            </LinearLayout>
+
+            <!-- Avatar Frame -->
+            <ImageView
+                android:id="@+id/social_profile_avatar"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/social_profile_avatar_frame"
+                android:scaleType="centerCrop"/>
+
+            <!-- Followers Count -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toStartOf="@id/social_profile_avatar"
+                android:layout_alignTop="@id/social_profile_background"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/social_profile_followers"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="8.5M"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/lexend_bold"
+                    android:textColor="@android:color/black" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Followers"
+                    android:textSize="12sp"
+                    android:fontFamily="@font/lexend_bold"
+                    android:textColor="@android:color/black" />
+            </LinearLayout>
+
+            <!-- Following Count -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/social_profile_avatar"
+                android:layout_alignTop="@id/social_profile_background"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="16dp"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/social_profile_following"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="12"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/lexend_bold"
+                    android:textColor="@android:color/black" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Following"
+                    android:textSize="12sp"
+                    android:fontFamily="@font/lexend_bold"
+                    android:textColor="@android:color/black" />
+            </LinearLayout>
+
+        </RelativeLayout>
+    </LinearLayout>
+</ScrollView>

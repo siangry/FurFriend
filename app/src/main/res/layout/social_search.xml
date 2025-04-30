@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="8dp"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+            <!-- Header -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="left">
+
+                    <ImageButton
+                        android:id="@+id/btn_social_return"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginRight="10dp"
+                        android:src="@drawable/ic_social_return_icon"
+                        android:background="@null"
+                        android:contentDescription="Back" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:layout_gravity="center"
+                        android:contentDescription="Search"
+                        android:src="@drawable/ic_social_search" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:orientation="horizontal">
+
+                    <ImageButton
+                        android:id="@+id/btn_social_profile"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/ic_social_profile_icon"
+                        android:background="@null"
+                        android:contentDescription="Profile" />
+
+                    <ImageButton
+                        android:id="@+id/btn_social_search"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/ic_social_search_icon2"
+                        android:background="@null"
+                        android:contentDescription="Search" />
+
+                    <ImageButton
+                        android:id="@+id/btn_social_notification"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/ic_social_noti_icon"
+                        android:background="@null"
+                        android:contentDescription="Notifications" />
+                </LinearLayout>
+            </RelativeLayout>
+        <!-- Search Input -->
+        <EditText
+            android:id="@+id/social_search_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Search"
+            android:paddingStart="60dp"
+            android:padding="12dp"
+            android:background="@drawable/ic_social_search_bar"
+            android:layout_marginTop="16dp" />
+
+        <!-- RecyclerView for Search Results -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_social_search_results"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:nestedScrollingEnabled="false" />
+
+        <!-- Empty State -->
+        <TextView
+            android:id="@+id/social_empty_state"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="No users found"
+            android:visibility="gone"
+            android:gravity="center"
+            android:layout_marginTop="16dp" />
+
+    </LinearLayout>
+</ScrollView>

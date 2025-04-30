@@ -37,6 +37,18 @@
             android:name=".screen.profile.EditProfilePage"
             android:exported="false" />
         <activity
+            android:name=".screen.social.AddPostActivity"
+            android:exported="false"/>
+        <activity
+            android:name=".screen.social.social_ProfileActivity"
+            android:exported="false"/>
+        <activity
+            android:name=".screen.social.social_SearchActivity"
+            android:exported="false"/>
+        <activity
+            android:name=".screen.social.social_NotificationActivity"
+            android:exported="false"/>
+        <activity
             android:name=".onboarding.OnboardingActivity"
             android:exported="true">
             <intent-filter>
