@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageButton
+                android:id="@+id/btn_social_return"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginRight="10dp"
+                android:src="@drawable/ic_social_return_icon"
+                android:background="@null"
+                android:contentDescription="Back" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_social_addpost"
+                android:layout_marginStart="8dp"
+                android:contentDescription="Add Post" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp"
+            android:gravity="left">
+
+            <!-- Public ImageButton -->
+            <ImageButton
+                android:id="@+id/btn_social_public"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:src="@drawable/ic_social_addpost_public2"
+                android:background="@null"
+                android:contentDescription="Public" />
+
+            <!-- Private ImageButton -->
+            <ImageButton
+                android:id="@+id/btn_social_private"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:src="@drawable/ic_social_addpost_private1"
+                android:background="@null"
+                android:contentDescription="Private" />
+        </LinearLayout>
+
+        <!-- Text Prompt -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="What's on your mind?"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:layout_marginTop="30dp" />
+
+        <!-- Input Area -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="#F9F9F9"
+            android:layout_marginTop="8dp"
+            android:padding="8dp">
+
+            <EditText
+                android:id="@+id/social_input_post"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Write here..."
+                android:gravity="top"
+                android:background="@android:color/transparent"
+                android:inputType="textMultiLine"
+                android:maxLines="6" />
+
+            <!-- Media Preview (below the post text) -->
+            <FrameLayout
+                android:id="@+id/social_media_preview_container"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="16dp"
+                android:visibility="gone"> <!-- Initially hidden -->
+
+                <!-- Media content: either Image or Video will be displayed here -->
+                <ImageView
+                    android:id="@+id/social_image_preview"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_centerInParent="true"
+                    android:scaleType="centerCrop"
+                    android:visibility="gone" /> <!-- Image Preview -->
+
+                <VideoView
+                    android:id="@+id/social_video_preview"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:visibility="gone" /> <!-- Video Preview -->
+
+            </FrameLayout>
+
+            <ImageButton
+                android:id="@+id/btn_social_media"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:src="@drawable/ic_social_addmedia_icon"
+                android:background="@null" />
+        </RelativeLayout>
+
+        <!-- Post Button -->
+        <ImageButton
+            android:id="@+id/btn_social_post"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:layout_marginTop="24dp"
+            android:src="@drawable/ic_social_post_icon"
+            android:background="@null" />
+    </LinearLayout>
+</ScrollView>
