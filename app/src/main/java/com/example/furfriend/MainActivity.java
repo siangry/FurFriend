@@ -5,17 +5,22 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.os.Bundle;
 
 import com.example.furfriend.databinding.ActivityMainBinding;
 import com.example.furfriend.screen.CalendarPage;
-import com.example.furfriend.screen.HomePage;
-import com.example.furfriend.screen.ProfilePage;
-import com.example.furfriend.screen.SearchPage;
+import com.example.furfriend.screen.home.HomePage;
+import com.example.furfriend.screen.profile.ProfilePage;
+import com.example.furfriend.screen.search.SearchPage;
 import com.example.furfriend.screen.social.SocialPage;
 
+import java.util.Locale;
 
-public class MainActivity extends AppCompatActivity {
+
+public class MainActivity extends BaseActivity {
     ActivityMainBinding binding;
 
     @Override
@@ -47,5 +52,4 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.replace(R.id.frame_layout, fragment);
         fragmentTransaction.commit();
     }
-
 }

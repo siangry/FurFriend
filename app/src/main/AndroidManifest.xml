@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -13,6 +16,27 @@
         android:theme="@style/Theme.FurFriend"
         tools:targetApi="31">
         <activity
+            android:name=".screen.profile.ChangeLanguagePage"
+            android:exported="false" />
+        <activity
+            android:name=".screen.profile.ResetPasswordPage"
+            android:exported="false" />
+        <activity
+            android:name=".screen.profile.EditPetDetailsPage"
+            android:exported="false" />
+        <activity
+            android:name=".screen.profile.UpdateSuccessPage"
+            android:exported="false" />
+        <activity
+            android:name=".screen.profile.AddPetPage"
+            android:exported="false" />
+        <activity
+            android:name=".screen.profile.ViewAllPetPage"
+            android:exported="false" />
+        <activity
+            android:name=".screen.profile.EditProfilePage"
+            android:exported="false" />
+        <activity
             android:name=".onboarding.OnboardingActivity"
             android:exported="true">
             <intent-filter>
@@ -22,10 +46,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".screen.LoginActivity"
+            android:name=".screen.loginSignup.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".screen.SignupActivity"
+            android:name=".screen.loginSignup.SignupActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
@@ -42,7 +66,23 @@
         <activity
             android:name=".screen.social.social_NotificationActivity"
             android:exported="false"/>
+        <activity
+            android:name=".screen.search.LocationDetail"
+            android:exported="false" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyD8auLWM0uCJkS9i01gPmunjA2NWzXUD2U" />
+
+        <service
+            android:name=".MyFirebaseMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
 
     </application>
+
 
 </manifest>
