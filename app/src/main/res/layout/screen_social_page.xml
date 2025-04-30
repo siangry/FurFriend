@@ -1,17 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    tools:context=".screen.CalendarPage">
+    tools:context=".screen.social.SocialPage">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/social"
-        android:textSize="30sp"
-        android:textColor="@color/orange"
-        android:layout_centerInParent="true"/>
-</RelativeLayout>
+    <!-- ScrollView for your posts -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:padding="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Header -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp">
+
+                <ImageView
+                    android:id="@+id/image_social"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="8dp"
+                    android:contentDescription="Social"
+                    android:src="@drawable/ic_social_social" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:orientation="horizontal">
+
+                    <ImageButton
+                        android:id="@+id/btn_social_profile"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/ic_social_profile_icon"
+                        android:background="@null"
+                        android:contentDescription="Profile" />
+
+                    <ImageButton
+                        android:id="@+id/btn_social_search"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/ic_social_search_icon"
+                        android:background="@null"
+                        android:contentDescription="Search" />
+
+                    <ImageButton
+                        android:id="@+id/btn_social_notification"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/ic_social_noti_icon"
+                        android:background="@null"
+                        android:contentDescription="Notifications" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <!-- RecyclerView for Posts -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_posts"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:nestedScrollingEnabled="false" />
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Floating Action Button (FAB) to add new post -->
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/fab_social_add_post"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_gravity="end|bottom"
+        android:src="@drawable/ic_social_addpost_icon"
+        android:backgroundTint="@color/design_default_color_background"
+        android:contentDescription="Add Post" />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

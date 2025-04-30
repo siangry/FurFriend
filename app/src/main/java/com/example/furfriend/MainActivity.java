@@ -12,7 +12,7 @@ import com.example.furfriend.screen.CalendarPage;
 import com.example.furfriend.screen.HomePage;
 import com.example.furfriend.screen.ProfilePage;
 import com.example.furfriend.screen.SearchPage;
-import com.example.furfriend.screen.SocialPage;
+import com.example.furfriend.screen.social.SocialPage;
 
 
 public class MainActivity extends AppCompatActivity {
