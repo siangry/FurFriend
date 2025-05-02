@@ -156,8 +156,8 @@ public class SocialPage extends Fragment {
                         return;
                     }
 
-                    // Fetch usernames for all userIds
-                    fetchUserNames(userIds, userNames -> {
+                    // Fetch usernames and avatars for all userIds
+                    fetchUserData(userIds, (userNames, avatarMap) -> {
                         // Handle ADDED posts
                         for (DocumentSnapshot document : addedDocs) {
                             String postId = document.getId();
@@ -173,6 +173,7 @@ public class SocialPage extends Fragment {
                             }
 
                             String userName = userNames.getOrDefault(userId, "Unknown");
+                            String avatarBase64 = avatarMap.getOrDefault(userId, "");
 
                             // Format timestamp to date-time string
                             String dateTime = timestamp != null ?
@@ -187,11 +188,10 @@ public class SocialPage extends Fragment {
                                     timestamp != null ? timestamp : 0,
                                     likes
                             );
-
                             post.setMediaUrl(mediaUrl != null ? mediaUrl : "");
                             post.setCommentCount(commentCount != null ? commentCount.intValue() : 0);
                             post.setDateTime(dateTime);
-
+                            post.setAvatarUrl(avatarBase64);
                             if (likes != null && likes.contains(currentUserId)) {
                                 post.setLiked(true);
                             }
@@ -223,6 +223,7 @@ public class SocialPage extends Fragment {
                             }
 
                             String userName = userNames.getOrDefault(userId, "Unknown");
+                            String avatarBase64 = avatarMap.getOrDefault(userId, "");
 
                             // Format timestamp to date-time string
                             String dateTime = timestamp != null ?
@@ -240,6 +241,7 @@ public class SocialPage extends Fragment {
                                     post.setCommentCount(commentCount != null ? commentCount.intValue() : 0);
                                     post.setDateTime(dateTime);
                                     post.setLiked(likes != null && likes.contains(currentUserId));
+                                    post.setAvatarUrl(avatarBase64);
                                     postAdapter.notifyItemChanged(i);
                                     break;
                                 }
@@ -256,36 +258,45 @@ public class SocialPage extends Fragment {
         }
     }
 
-    private void fetchUserNames(Set<String> userIds, OnUserNamesFetchedListener listener) {
+    private void fetchUserData(Set<String> userIds, OnUserDataFetchedListener listener) {
         if (userIds.isEmpty()) {
-            listener.onFetched(new HashMap<>());
+            listener.onFetched(new HashMap<>(), new HashMap<>());
             return;
         }
 
         Map<String, String> userNames = new HashMap<>();
+        Map<String, String> avatarMap = new HashMap<>();
         AtomicInteger remaining = new AtomicInteger(userIds.size());
 
         for (String userId : userIds) {
             db.collection("users").document(userId)
                     .collection("profile").document("userDetails").get()
                     .addOnSuccessListener(document -> {
-                        String userName = document.exists() ? document.getString("username") : null;
-                        userNames.put(userId, userName != null ? userName : "Unknown");
+                        if (document.exists()) {
+                            String userName = document.getString("username");
+                            String avatarBase64 = document.getString("profilePictureBase64");
+                            userNames.put(userId, userName != null ? userName : "Unknown");
+                            avatarMap.put(userId, avatarBase64 != null ? avatarBase64 : "");
+                        } else {
+                            userNames.put(userId, "Unknown");
+                            avatarMap.put(userId, "");
+                        }
                         if (remaining.decrementAndGet() == 0) {
-                            listener.onFetched(userNames);
+                            listener.onFetched(userNames, avatarMap);
                         }
                     })
                     .addOnFailureListener(e -> {
                         userNames.put(userId, "Unknown");
+                        avatarMap.put(userId, "");
                         if (remaining.decrementAndGet() == 0) {
-                            listener.onFetched(userNames);
+                            listener.onFetched(userNames, avatarMap);
                         }
                     });
         }
     }
 
-    private interface OnUserNamesFetchedListener {
-        void onFetched(Map<String, String> userNames);
+    private interface OnUserDataFetchedListener {
+        void onFetched(Map<String, String> userNames, Map<String, String> avatarMap);
     }
 
     @Override

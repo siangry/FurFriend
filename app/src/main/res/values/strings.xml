@@ -99,4 +99,20 @@
     <string name="addressNotAvailable">Address not available</string>
     <string name="hoursNotAvailable">Hours not available</string>
     <string name="phoneNotAvailable">Phone not available</string>
+    <string name="social_profile_my_posts">My posts</string>
+    <string name="social_profile_posts">Posts</string>
+    <string name="social_profile_likes">Likes</string>
+    <string name="social_profile_followers">Followers</string>
+    <string name="social_profile_following">Following</string>
+    <string name="notification">Notification</string>
+    <string name="add_post">Add Post</string>
+    <string name="write_comment">Write a comment</string>
+    <string name="send">Send</string>
+    <string name="gallery">Gallery</string>
+    <string name="camera">Camera</string>
+    <string name="addpost_public">Public</string>
+    <string name="addpost_private">Private</string>
+    <string name="post">Post</string>
+    <string name="post_description">What\'s on your mind?</string>
+    <string name="write_here">Write here...</string>
 </resources>

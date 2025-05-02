@@ -16,6 +16,7 @@ public class Post {
     public int likeCount;
     public int commentCount;
     public List<Comment> comments = new ArrayList<>();
+    private String avatarUrl; // Added to store avatar URL or Base64 data
 
     // Constructor for Firestore data
     public Post(String postId, String userId, String userName, String contentText, long timestamp, List<String> likes) {
@@ -30,6 +31,7 @@ public class Post {
         this.isLiked = false; // Check if current user liked (implement later)
         this.likeCount = likes != null ? likes.size() : 0;
         this.commentCount = 0; // Fetch from Firestore if available
+        this.avatarUrl = ""; // Default; fetch from Firestore if available
     }
 
     // Original constructor (for manual creation)
@@ -45,6 +47,7 @@ public class Post {
         this.isLiked = false;
         this.likeCount = 0;
         this.commentCount = 0;
+        this.avatarUrl = ""; // Default; set manually if needed
     }
 
     // Getters
@@ -60,6 +63,7 @@ public class Post {
     public int getLikeCount() { return likeCount; }
     public int getCommentCount() { return commentCount; }
     public List<Comment> getComments() { return comments; }
+    public String getAvatarUrl() { return avatarUrl; } // Added getter for avatar URL
 
     // Setters
     public void setLiked(boolean liked) { this.isLiked = liked; }
@@ -73,6 +77,9 @@ public class Post {
     }
     public void setMediaUrl(String mediaUrl) { // Added setter for mediaUrl
         this.mediaUrl = mediaUrl;
+    }
+    public void setAvatarUrl(String avatarUrl) { // Added setter for avatar URL
+        this.avatarUrl = avatarUrl;
     }
 
     private String formatTimestamp(long timestamp) {

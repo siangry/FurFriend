@@ -1,6 +1,8 @@
 package com.example.furfriend.screen.social;
 
-public class social_Notification{
+import com.example.furfriend.BaseActivity;
+
+public class social_Notification extends BaseActivity {
     private String id; // Firestore document ID
     private String userId; // ID of the user who triggered the notification
     private String username; // Username of the user who triggered the notification
@@ -51,5 +53,9 @@ public class social_Notification{
 
     public String getAvatarUrl() {
         return avatarUrl;
+    }
+
+    public void setAvatarUrl(String avatarUrl) {
+        this.avatarUrl = avatarUrl != null ? avatarUrl : "";
     }
 }

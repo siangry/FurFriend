@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.furfriend.R;
 import java.util.List;
 
@@ -38,10 +39,11 @@ public class social_NotificationAdapter extends RecyclerView.Adapter<social_Noti
         );
         holder.timeTextView.setText(timeAgo);
 
-        // Load avatar with Glide
+        // Load avatar with Glide using Base64 data URI
         if (notification.getAvatarUrl() != null && !notification.getAvatarUrl().isEmpty()) {
             Glide.with(holder.itemView.getContext())
                     .load(notification.getAvatarUrl())
+                    .apply(RequestOptions.circleCropTransform())
                     .placeholder(R.drawable.ic_social_profile_icon)
                     .error(R.drawable.ic_social_profile_icon)
                     .into(holder.avatarImageView);
