@@ -10,7 +10,9 @@
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:contentDescription="User Profile Image"
-        android:scaleType="centerCrop" />
+        android:background="@drawable/social_profile_avatar_frame"
+        android:scaleType="centerCrop"
+        android:clipToOutline="true"/>
 
     <TextView
         android:id="@+id/social_user_username"
