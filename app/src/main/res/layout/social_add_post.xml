@@ -26,12 +26,13 @@
                 android:background="@null"
                 android:contentDescription="Back" />
 
-            <ImageView
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_social_addpost"
+                android:text="@string/add_post"
                 android:layout_marginStart="8dp"
-                android:contentDescription="Add Post" />
+                android:textSize="22sp"
+                android:fontFamily="@font/lexend_bold"/>
         </LinearLayout>
 
         <LinearLayout
@@ -41,27 +42,61 @@
             android:layout_marginTop="16dp"
             android:gravity="left">
 
-            <!-- Public ImageButton -->
-            <ImageButton
-                android:id="@+id/btn_social_public"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_margin="5dp"
-                android:src="@drawable/ic_social_addpost_public2"
-                android:background="@null"
-                android:contentDescription="Public" />
+            <FrameLayout
+                android:id="@+id/layout_addpost_public"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
 
-            <!-- Private ImageButton -->
-            <ImageButton
-                android:id="@+id/btn_social_private"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_margin="5dp"
-                android:src="@drawable/ic_social_addpost_private1"
-                android:background="@null"
-                android:contentDescription="Private" />
+                <!-- Public ImageButton -->
+                <ImageButton
+                    android:id="@+id/btn_social_public"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="5dp"
+                    android:src="@drawable/ic_social_addpost_public2"
+                    android:background="@null"
+                    android:contentDescription="Public" />
+
+
+                <TextView
+                    android:id="@+id/txt_addpost_public"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/addpost_public"
+                    android:layout_gravity="center"
+                    android:textColor="@color/social_addpost_tab"
+
+                    android:textSize="20sp"
+                    android:fontFamily="@font/lexend_bold"/>
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/layout_addpost_private"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <!-- Private ImageButton -->
+                <ImageButton
+                    android:id="@+id/btn_social_private"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:src="@drawable/ic_social_addpost_private1"
+                    android:background="@null"
+                    android:contentDescription="Private" />
+
+                <TextView
+                    android:id="@+id/txt_addpost_private"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/addpost_private"
+                    android:layout_gravity="center"
+                    android:textColor="@color/social_addpost_tab"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/lexend_bold"/>
+            </FrameLayout>
+
         </LinearLayout>
 
         <!-- Text Prompt -->
@@ -94,24 +129,25 @@
             <!-- Media Preview (below the post text) -->
             <FrameLayout
                 android:id="@+id/social_media_preview_container"
+                android:layout_marginStart="10dp"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="110dp"
                 android:layout_marginTop="16dp"
                 android:visibility="gone"> <!-- Initially hidden -->
 
                 <!-- Media content: either Image or Video will be displayed here -->
                 <ImageView
                     android:id="@+id/social_image_preview"
-                    android:layout_width="match_parent"
-                    android:layout_height="200dp"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
                     android:layout_centerInParent="true"
                     android:scaleType="centerCrop"
                     android:visibility="gone" /> <!-- Image Preview -->
 
                 <VideoView
                     android:id="@+id/social_video_preview"
-                    android:layout_width="match_parent"
-                    android:layout_height="200dp"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
                     android:visibility="gone" /> <!-- Video Preview -->
 
             </FrameLayout>
@@ -126,14 +162,30 @@
                 android:background="@null" />
         </RelativeLayout>
 
-        <!-- Post Button -->
-        <ImageButton
-            android:id="@+id/btn_social_post"
+        <FrameLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom|center"
-            android:layout_marginTop="24dp"
-            android:src="@drawable/ic_social_post_icon"
-            android:background="@null" />
+            android:layout_gravity="center_horizontal">
+
+            <!-- Post Button -->
+            <ImageButton
+                android:id="@+id/btn_social_post"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center"
+                android:background="@null"
+                android:src="@drawable/ic_social_post_icon" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/post"
+                android:textSize="22sp"
+                android:textColor="#FFFFFF"
+                android:fontFamily="@font/lexend_bold"/>
+
+        </FrameLayout>
+
     </LinearLayout>
 </ScrollView>

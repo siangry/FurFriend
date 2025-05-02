@@ -38,7 +38,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="8dp"
                     android:layout_gravity="center"
-                    android:text="Profile"
+                    android:text="@string/profile"
                     android:textSize="22sp"
                     android:fontFamily="@font/lexend_bold"/>
             </LinearLayout>
@@ -114,7 +114,7 @@
                     android:text="It's okay, your world is precious\nAnd precious just as you are right now"
                     android:textColor="@android:color/darker_gray"
                     android:fontFamily="@font/lexend_bold"
-                    android:textSize="14sp" />
+                    android:textSize="16sp" />
 
                 <!-- Follow Button (Visible for other users) -->
                 <Button
@@ -142,7 +142,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="16dp"
                         android:background="@drawable/social_tab_underline1"
-                        android:text="My posts"
+                        android:text="@string/social_profile_my_posts"
                         android:fontFamily="@font/lexend_bold"
                         android:textColor="@color/social_profile_tab"
                         android:textSize="16sp" />
@@ -152,7 +152,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@drawable/social_tab_underline1"
-                        android:text="Likes"
+                        android:text="@string/social_profile_likes"
                         android:fontFamily="@font/lexend_bold"
                         android:textColor="@color/social_profile_tab"
                         android:textSize="16sp" />
@@ -174,11 +174,13 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_centerHorizontal="true"
-                android:src="@drawable/social_profile_avatar_frame"
-                android:scaleType="centerCrop"/>
+                android:background="@drawable/social_profile_avatar_frame"
+                android:scaleType="centerCrop"
+                android:clipToOutline="true"/>
 
             <!-- Followers Count -->
             <LinearLayout
+                android:id="@+id/social_profile_followers_layout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toStartOf="@id/social_profile_avatar"
@@ -200,7 +202,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Followers"
+                    android:text="@string/social_profile_followers"
                     android:textSize="12sp"
                     android:fontFamily="@font/lexend_bold"
                     android:textColor="@android:color/black" />
@@ -208,6 +210,7 @@
 
             <!-- Following Count -->
             <LinearLayout
+                android:id="@+id/social_profile_following_layout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toEndOf="@id/social_profile_avatar"
@@ -229,7 +232,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Following"
+                    android:text="@string/social_profile_following"
                     android:textSize="12sp"
                     android:fontFamily="@font/lexend_bold"
                     android:textColor="@android:color/black" />

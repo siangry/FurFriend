@@ -100,4 +100,18 @@
     <string name="addressNotAvailable">暂无地址</string>
     <string name="hoursNotAvailable">暂无营业时间</string>
     <string name="phoneNotAvailable">暂无联络号码</string>
+    <string name="social_profile_my_posts">我的帖子</string>
+    <string name="social_profile_posts">帖子</string>
+    <string name="social_profile_likes">赞</string>
+    <string name="social_profile_followers">粉丝</string>
+    <string name="social_profile_following">关注</string>
+    <string name="notification">通知</string>
+    <string name="add_post">新帖子</string>
+    <string name="write_comment">评论</string>
+    <string name="send">发送</string>
+    <string name="gallery">相册</string>
+    <string name="camera">相机</string>
+    <string name="addpost_public">公开</string>
+    <string name="addpost_private">私密</string>
+    <string name="post">发帖</string>
 </resources>

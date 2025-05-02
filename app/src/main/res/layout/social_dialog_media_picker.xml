@@ -6,20 +6,48 @@
     android:padding="24dp"
     android:gravity="center">
 
-    <ImageButton
-        android:id="@+id/btn_gallery"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_social_gallery_icon"
-        android:background="@null"
-        android:contentDescription="Gallery" />
+        android:orientation="vertical">
 
-    <ImageButton
-        android:id="@+id/btn_camera"
+        <ImageButton
+            android:id="@+id/btn_gallery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_social_gallery_icon"
+            android:background="@null"
+            android:contentDescription="Gallery" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/gallery"
+            android:textSize="18sp"
+            android:fontFamily="@font/lexend_bold"/>
+    </LinearLayout>
+
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_social_camera_icon"
-        android:background="@null"
-        android:contentDescription="Camera"
-        android:layout_marginStart="24dp" />
+        android:orientation="vertical">
+
+        <ImageButton
+            android:id="@+id/btn_camera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_social_camera_icon"
+            android:background="@null"
+            android:contentDescription="Camera" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/camera"
+            android:textSize="18sp"
+            android:fontFamily="@font/lexend_bold"/>
+    </LinearLayout>
 </LinearLayout>
