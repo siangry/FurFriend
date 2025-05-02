@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="0dp">
+
+    <RelativeLayout
+        android:id="@+id/cardBackground"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/yellow"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/activityTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Vomit 2 times"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:fontFamily="@font/lexend_semi_bold" />
+
+        <TextView
+            android:id="@+id/activityDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/activityTitle"
+            android:layout_marginTop="2dp"
+            android:text="Vomit after lunch, 2 times in a day"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:fontFamily="@font/lexend_regular" />
+
+        <TextView
+            android:id="@+id/petNames"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/activityDescription"
+            android:layout_marginTop="8dp"
+            android:text="Kimja"
+            android:textColor="@color/dark_grey"
+            android:textSize="14sp"
+            android:fontFamily="@font/lexend_regular" />
+
+        <TextView
+            android:id="@+id/activityDateTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/petNames"
+            android:layout_marginTop="2dp"
+            android:text="12 Jan 2025, 8:00am"
+            android:textColor="@color/dark_grey"
+            android:textSize="14sp"
+            android:fontFamily="@font/lexend_regular" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/btnEdit"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginEnd="8dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_edit_icon"
+                android:contentDescription="Edit activity" />
+
+            <ImageButton
+                android:id="@+id/btnDelete"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_cross"
+                android:contentDescription="Delete activity" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/petImagesContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_below="@id/activityDescription"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="24dp"
+            android:orientation="horizontal"
+            android:gravity="end|center_vertical">
+
+            <ImageView
+                android:id="@+id/petImage1"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="0dp"
+                android:scaleType="centerCrop"
+                android:background="@drawable/circle_white_bg"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/petImage2"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="-12dp"
+                android:scaleType="centerCrop"
+                android:background="@drawable/circle_white_bg"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/petImage3"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="-12dp"
+                android:scaleType="centerCrop"
+                android:background="@drawable/circle_white_bg"
+                android:visibility="gone" />
+        </LinearLayout>
+    </RelativeLayout>
+</androidx.cardview.widget.CardView> 

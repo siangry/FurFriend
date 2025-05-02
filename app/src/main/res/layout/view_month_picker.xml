@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <!-- Year navigation row -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical|center_horizontal"
+        android:layout_marginBottom="8dp">
+
+        <ImageButton
+            android:id="@+id/btnPrevYear"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_previous" />
+
+        <TextView
+            android:id="@+id/tvYear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2025"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/lexend_medium"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp" />
+
+        <ImageButton
+            android:id="@+id/btnNextYear"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_arrow_right" />
+    </LinearLayout>
+
+    <GridLayout
+        android:id="@+id/monthGrid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="3"
+        android:rowCount="4"
+        android:alignmentMode="alignMargins"
+        android:rowOrderPreserved="false">
+
+        <!-- 12 months, each as a TextView -->
+        <TextView android:id="@+id/monthJan" style="@style/MonthPickerItem" android:text="@string/jan" />
+        <TextView android:id="@+id/monthFeb" style="@style/MonthPickerItem" android:text="@string/feb" />
+        <TextView android:id="@+id/monthMar" style="@style/MonthPickerItem" android:text="@string/mar" />
+        <TextView android:id="@+id/monthApr" style="@style/MonthPickerItem" android:text="@string/apr" />
+        <TextView android:id="@+id/monthMay" style="@style/MonthPickerItem" android:text="@string/may" />
+        <TextView android:id="@+id/monthJun" style="@style/MonthPickerItem" android:text="@string/jun" />
+        <TextView android:id="@+id/monthJul" style="@style/MonthPickerItem" android:text="@string/jul" />
+        <TextView android:id="@+id/monthAug" style="@style/MonthPickerItem" android:text="@string/aug" />
+        <TextView android:id="@+id/monthSep" style="@style/MonthPickerItem" android:text="@string/sep" />
+        <TextView android:id="@+id/monthOct" style="@style/MonthPickerItem" android:text="@string/oct" />
+        <TextView android:id="@+id/monthNov" style="@style/MonthPickerItem" android:text="@string/nov" />
+        <TextView android:id="@+id/monthDec" style="@style/MonthPickerItem" android:text="@string/dec" />
+
+    </GridLayout>
+</LinearLayout> 

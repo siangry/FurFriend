@@ -15,6 +15,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FurFriend"
         tools:targetApi="31">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
         <activity
             android:name=".screen.profile.ChangeLanguagePage"
             android:exported="false" />
@@ -64,10 +68,31 @@
             android:name=".screen.loginSignup.SignupActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".screen.search.LocationDetail"
             android:exported="false" />
         <activity
-            android:name=".screen.search.LocationDetail"
+            android:name=".screen.calendar.AllActivitiesPage"
+            android:exported="false" />
+        <activity
+            android:name=".screen.calendar.EditActivityPage"
+            android:exported="false" />
+        <activity
+            android:name=".screen.calendar.Success"
+            android:exported="false" />
+        <activity
+            android:name=".screen.calendar.AddActivity"
+            android:exported="false" />
+        <activity
+            android:name=".screen.calendar.AllRemindersPage"
+            android:exported="false" />
+        <activity
+            android:name=".screen.calendar.AddReminder"
+            android:exported="false" />
+        <activity
+            android:name=".screen.calendar.EditReminderPage"
+            android:exported="false" />
+        <activity
+            android:name=".screen.calendar.ExportPdfPage"
             android:exported="false" />
 
         <meta-data
@@ -81,6 +106,16 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.example.furfriend.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
 
     </application>
 

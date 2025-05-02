@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "371716173491",
+    "project_id": "furfriend-8ea27",
+    "storage_bucket": "furfriend-8ea27.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:371716173491:android:ed0a8ce24bb7a23b368ac6",
+        "android_client_info": {
+          "package_name": "com.example.furfriend"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGSuoqIKi1_u5xY2vXOG6vplL-I3-xcX8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

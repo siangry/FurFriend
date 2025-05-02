@@ -1,23 +1,17 @@
 package com.example.furfriend;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.content.res.Configuration;
 import android.os.Bundle;
 
 import com.example.furfriend.databinding.ActivityMainBinding;
-import com.example.furfriend.screen.CalendarPage;
+import com.example.furfriend.screen.calendar.CalendarPage;
 import com.example.furfriend.screen.home.HomePage;
 import com.example.furfriend.screen.profile.ProfilePage;
 import com.example.furfriend.screen.search.SearchPage;
 import com.example.furfriend.screen.social.SocialPage;
-
-import java.util.Locale;
 
 
 public class MainActivity extends BaseActivity {

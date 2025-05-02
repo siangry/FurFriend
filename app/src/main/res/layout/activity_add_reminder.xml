@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context=".screen.calendar.AddReminder">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/btnBack"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_back" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:text="@string/addReminder"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                android:fontFamily="@font/lexend_semi_bold" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/title"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            android:fontFamily="@font/lexend_medium" />
+
+        <EditText
+            android:id="@+id/etReminderTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/edit_text_background"
+            android:hint="@string/reminderTitle"
+            android:inputType="text"
+            android:fontFamily="@font/lexend_regular"
+            android:padding="12dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/description"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            android:fontFamily="@font/lexend_medium" />
+
+        <EditText
+            android:id="@+id/etReminderDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/edit_text_background"
+            android:gravity="top"
+            android:hint="@string/reminderDescription"
+            android:inputType="textMultiLine"
+            android:lines="4"
+            android:fontFamily="@font/lexend_regular"
+            android:padding="12dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/date"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            android:fontFamily="@font/lexend_medium" />
+
+        <EditText
+            android:id="@+id/dateInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/edit_text_background"
+            android:padding="12dp"
+            android:textSize="16sp"
+            android:fontFamily="@font/lexend_regular"
+            android:focusable="false"
+            android:clickable="true"
+            android:hint="@string/selectDate" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/time"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            android:fontFamily="@font/lexend_medium" />
+
+        <EditText
+            android:id="@+id/timeInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/edit_text_background"
+            android:padding="12dp"
+            android:textSize="16sp"
+            android:fontFamily="@font/lexend_regular"
+            android:focusable="false"
+            android:clickable="true"
+            android:hint="@string/selectTime" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/pets"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            android:fontFamily="@font/lexend_medium" />
+
+        <LinearLayout
+            android:id="@+id/petSelectionContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/edit_text_background"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/petSelectionHeader"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp">
+
+                <TextView
+                    android:id="@+id/tvSelectedPets"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/selectPets"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/lexend_regular" />
+
+                <ImageView
+                    android:id="@+id/ivDropdownArrow"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_down_arrow" />
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvPets"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxHeight="200dp"
+                android:padding="8dp"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnAddReminder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/orange_button_background"
+            android:text="@string/addReminder"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:fontFamily="@font/lexend_bold" />
+
+    </LinearLayout>
+</ScrollView> 
