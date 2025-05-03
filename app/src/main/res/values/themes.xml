@@ -4,6 +4,7 @@
         <!-- Customize your light theme here. -->
         <item name="colorPrimary">@color/orange</item>
         <item name="android:windowBackground">@color/beige</item>
+        <item name="android:fontFamily">@font/lexend_regular</item>
     </style>
 
     <style name="Theme.FurFriend" parent="Base.Theme.FurFriend" />

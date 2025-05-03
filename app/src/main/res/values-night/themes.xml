@@ -2,6 +2,8 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.FurFriend" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <item name="colorPrimary">@color/orange</item>
+        <item name="android:windowBackground">@color/beige</item>
+        <item name="android:fontFamily">@font/lexend_regular</item>
     </style>
 </resources>
