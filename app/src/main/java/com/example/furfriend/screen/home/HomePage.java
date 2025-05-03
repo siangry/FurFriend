@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.furfriend.Constants;
 import com.example.furfriend.R;
+import com.example.furfriend.screen.calendar.AllRemindersPage;
 import com.example.furfriend.screen.profile.ViewAllPetPage;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -87,10 +88,9 @@ public class HomePage extends Fragment {
             startActivity(new Intent(getActivity(), ViewAllPetPage.class));
         });
 
-        // todo: pending reminder part
-//        seeMoreReminder.setOnClickListener(v -> {
-//            startActivity(new Intent(getActivity(), Reminders.class));
-//        });
+        seeMoreReminder.setOnClickListener(v -> {
+            startActivity(new Intent(getActivity(), AllRemindersPage.class));
+        });
 
         return view;
 
