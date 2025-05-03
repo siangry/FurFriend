@@ -23,15 +23,14 @@
                 android:layout_height="wrap_content"
                 android:padding="8dp">
 
-                <ImageView
-                    android:id="@+id/image_social"
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginTop="8dp"
-                    android:contentDescription="Social"
-                    android:src="@drawable/ic_social_social" />
+                    android:layout_gravity="center"
+                    android:text="@string/social"
+                    android:textColor="@color/orange"
+                    android:textSize="28sp"
+                    android:fontFamily="@font/lexend_bold"/>
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -71,7 +70,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:nestedScrollingEnabled="false" />
+                android:nestedScrollingEnabled="true" />
         </LinearLayout>
     </ScrollView>
 

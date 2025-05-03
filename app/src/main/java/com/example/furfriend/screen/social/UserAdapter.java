@@ -6,47 +6,54 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.furfriend.R;
-
 import java.util.List;
 
 public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder> {
 
     private List<social_user> userList;
+    private OnUserClickListener onUserClickListener;
 
-    public UserAdapter(List<social_user> userList) {
-        this.userList = userList;
+    // Define the click listener interface
+    public interface OnUserClickListener {
+        void onUserClick(social_user user);
     }
 
+    // Update constructor to accept the click listener
+    public UserAdapter(List<social_user> userList, OnUserClickListener onUserClickListener) {
+        this.userList = userList;
+        this.onUserClickListener = onUserClickListener;
+    }
+
+    @NonNull
     @Override
-    public UserViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.social_item_user, parent, false);
+    public UserViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.social_item_user, parent, false);
         return new UserViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(UserViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull UserViewHolder holder, int position) {
         social_user user = userList.get(position);
-        holder.usernameTextView.setText(user.getUsername());
+        holder.tvUsername.setText(user.getUsername() != null ? user.getUsername() : "Unknown");
 
-        // Load profile image with Glide
-        if (user.getProfileImageUrl() != null && !user.getProfileImageUrl().isEmpty()) {
-            Glide.with(holder.itemView.getContext())
-                    .load(user.getProfileImageUrl())
-                    .placeholder(R.drawable.ic_social_profile_icon) // Default image
-                    .error(R.drawable.ic_social_profile_icon)
-                    .into(holder.profileImageView);
-        } else {
-            holder.profileImageView.setImageResource(R.drawable.ic_social_profile_icon);
-        }
+        // Load avatar using Glide with Base64 data
+        String avatarDataUri = user.getProfileImageUrl() != null ? "data:image/jpeg;base64," + user.getProfileImageUrl() : null;
+        Glide.with(holder.itemView.getContext())
+                .load(avatarDataUri != null ? avatarDataUri : R.drawable.ic_social)
+                .placeholder(R.drawable.ic_social)
+                .error(R.drawable.ic_social)
+                .into(holder.ivAvatar);
 
-        // Navigate to user profile on click
+        // Set click listener on the entire item view
         holder.itemView.setOnClickListener(v -> {
-            Intent intent = new Intent(holder.itemView.getContext(), social_ProfileActivity.class);
-            intent.putExtra("uid", user.getUid());
-            holder.itemView.getContext().startActivity(intent);
+            if (onUserClickListener != null) {
+                onUserClickListener.onUserClick(user);
+            }
         });
     }
 
@@ -56,13 +63,13 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
     }
 
     static class UserViewHolder extends RecyclerView.ViewHolder {
-        ImageView profileImageView;
-        TextView usernameTextView;
+        ImageView ivAvatar;
+        TextView tvUsername;
 
-        UserViewHolder(View itemView) {
+        public UserViewHolder(@NonNull View itemView) {
             super(itemView);
-            profileImageView = itemView.findViewById(R.id.social_user_profile_image);
-            usernameTextView = itemView.findViewById(R.id.social_user_username);
+            ivAvatar = itemView.findViewById(R.id.social_user_profile_image);
+            tvUsername = itemView.findViewById(R.id.social_user_username);
         }
     }
 }

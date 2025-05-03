@@ -139,4 +139,20 @@
     <string name="nov">Nov</string>
     <string name="dec">Dis</string>
     <string name="successMessage">Aktiviti telah berjaya ditambahkan!</string>
+    <string name="social_profile_my_posts">Posts saya</string>
+    <string name="social_profile_posts">Posts</string>
+    <string name="social_profile_likes">Suka</string>
+    <string name="social_profile_followers">Pengikut</string>
+    <string name="social_profile_following">Mengikuti</string>
+    <string name="notification">Pemberitahuan</string>
+    <string name="add_post">Hantar Posts</string>
+    <string name="write_comment">komen</string>
+    <string name="send">Hantar</string>
+    <string name="gallery">Galeri</string>
+    <string name="camera">Kamera</string>
+    <string name="addpost_public">Awam</string>
+    <string name="addpost_private">Persendirian</string>
+    <string name="post">Hantar</string>
+    <string name="post_description">Ucapkan pemikiran anda</string>
+    <string name="write_here">Tulis di sini...</string>
 </resources>
