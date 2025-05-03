@@ -167,40 +167,61 @@ public class HomePage extends Fragment {
         }
     }
 
-    // todo: pending reminder part
     private void fetchTodayReminders() {
-        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
-        if (currentUser != null) {
-            db.collection(Constants.USERS)
-                    .document(currentUser.getUid())
-                    .collection(Constants.REMINDER)
-                    .whereEqualTo("userId", Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid())
-                    .whereEqualTo("date", getTodayDate())
-                    .get()
-                    .addOnSuccessListener(queryDocumentSnapshots -> {
-                        if (queryDocumentSnapshots.isEmpty()) {
-                            noReminderView.setVisibility(View.VISIBLE);
-                        } else {
-                            for (DocumentSnapshot doc : queryDocumentSnapshots) {
-                                String title = doc.getString("title");
-                                String time = doc.getString("time");
+        backgroundColors = new int[]{
+                ContextCompat.getColor(requireContext(), R.color.blue),
+                ContextCompat.getColor(requireContext(), R.color.yellow),
+                ContextCompat.getColor(requireContext(), R.color.pink),
+                ContextCompat.getColor(requireContext(), R.color.green)
+        };
 
-                                TextView reminderText = new TextView(getContext());
-                                reminderText.setBackgroundResource(R.drawable.round_border);
-                                reminderText.setPadding(24, 24, 24, 24);
-                                reminderText.setText(title + "\n" + time);
-                                reminderLayout.addView(reminderText);
-                            }
+        String userId = mAuth.getCurrentUser().getUid();
+        String todayDate = new SimpleDateFormat("dd MMM yyyy", Locale.getDefault()).format(new Date());
+
+        db.collection("reminders")
+                .whereEqualTo("userId", userId)
+                .whereEqualTo("date", todayDate)
+                .get()
+                .addOnSuccessListener(queryDocumentSnapshots -> {
+                    reminderLayout.removeAllViews();
+
+                    if (queryDocumentSnapshots.isEmpty()) {
+                        noReminderView.setVisibility(View.VISIBLE);
+                        reminderLayout.setVisibility(View.INVISIBLE);
+                    } else {
+                        noReminderView.setVisibility(View.INVISIBLE);
+                        reminderLayout.setVisibility(View.VISIBLE);
+
+                        for (DocumentSnapshot doc : queryDocumentSnapshots) {
+                            String title = doc.getString("title");
+                            String date = doc.getString("date");
+                            String time = doc.getString("time");
+
+                            View reminderView = LayoutInflater.from(getContext())
+                                    .inflate(R.layout.reminder_item, reminderLayout, false);
+
+                            TextView titleTextView = reminderView.findViewById(R.id.reminderTitle);
+                            TextView dateTextView = reminderView.findViewById(R.id.reminderDate);
+                            TextView timeTextView = reminderView.findViewById(R.id.reminderTime);
+
+                            titleTextView.setText(title != null ? title : "Unknown title");
+                            dateTextView.setText(date != null ? date : "Unknown date");
+                            timeTextView.setText(time != null ? time : "Unknown time");
+
+                            Random random = new Random();
+                            int randomColor = backgroundColors[random.nextInt(backgroundColors.length)];
+                            GradientDrawable backgroundDrawable = new GradientDrawable();
+                            backgroundDrawable.setColor(randomColor);
+                            backgroundDrawable.setCornerRadius(30f);
+                            reminderView.setBackground(backgroundDrawable);
+
+                            reminderLayout.addView(reminderView);
                         }
-                    })
-                    .addOnFailureListener(e -> {
-                        Toast.makeText(getContext(), "Failed to load reminders.", Toast.LENGTH_SHORT).show();
-                    });
-        }
-    }
-
-    private String getTodayDate() {
-        SimpleDateFormat sdf = new SimpleDateFormat("dd MMM yyyy", Locale.getDefault());
-        return sdf.format(new Date());
+                    }
+                })
+                .addOnFailureListener(e -> {
+                    noReminderView.setVisibility(View.VISIBLE);
+                    reminderLayout.setVisibility(View.INVISIBLE);
+                });
     }
 }
