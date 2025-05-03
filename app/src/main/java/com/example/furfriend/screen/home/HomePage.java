@@ -204,9 +204,9 @@ public class HomePage extends Fragment {
                             TextView dateTextView = reminderView.findViewById(R.id.reminderDate);
                             TextView timeTextView = reminderView.findViewById(R.id.reminderTime);
 
-                            titleTextView.setText(title != null ? title : "Unknown title");
-                            dateTextView.setText(date != null ? date : "Unknown date");
-                            timeTextView.setText(time != null ? time : "Unknown time");
+                            titleTextView.setText(title != null ? title : getString(R.string.unknown));
+                            dateTextView.setText(date != null ? date : getString(R.string.unknown));
+                            timeTextView.setText(time != null ? time : getString(R.string.unknown));
 
                             Random random = new Random();
                             int randomColor = backgroundColors[random.nextInt(backgroundColors.length)];

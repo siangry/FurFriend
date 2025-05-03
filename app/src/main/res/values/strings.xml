@@ -154,4 +154,17 @@
     <string name="post">Post</string>
     <string name="post_description">What\'s on your mind?</string>
     <string name="write_here">Write here...</string>
+    <string name="unknown">Unknown</string>
+    <string name="selectPicture">Select Picture</string>
+    <string name="pleaseFillInAll">Please fill in all fields</string>
+    <string name="petAddedSuccessfully">Pet added successfully!</string>
+    <string name="failToAddPet">Failed to add pet</string>
+    <string name="noPetDetailsFound">No pet details found</string>
+    <string name="failToLoadPetDetails">Failed to load pet details</string>
+    <string name="usernameRequired">Username required</string>
+    <string name="saving">Saving</string>
+    <string name="failToUpdateProfile">Failed to update profile</string>
+    <string name="currentPassIncorrect">Current password incorrect</string>
+    <string name="passwordUpdateFail">Password update failed</string>
+    <string name="passwordChangeSuccess">Password changed successfully</string>
 </resources>

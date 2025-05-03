@@ -155,4 +155,17 @@
     <string name="post">发帖</string>
     <string name="post_description">说些什么</string>
     <string name="write_here">输入文本</string>
+    <string name="unknown">未知</string>
+    <string name="selectPicture">选择图片</string>
+    <string name="pleaseFillInAll">请填写所有字段</string>
+    <string name="petAddedSuccessfully">宠物添加成功！</string>
+    <string name="failToAddPet">添加宠物失败</string>
+    <string name="noPetDetailsFound">未找到宠物详细信息</string>
+    <string name="failToLoadPetDetails">无法加载宠物详情</string>
+    <string name="usernameRequired">需要用户名</string>
+    <string name="saving">保存</string>
+    <string name="failToUpdateProfile">无法更新个人资料</string>
+    <string name="currentPassIncorrect">当前密码不正确</string>
+    <string name="passwordUpdateFail">密码更新失败</string>
+    <string name="passwordChangeSuccess">密码修改成功</string>
 </resources>

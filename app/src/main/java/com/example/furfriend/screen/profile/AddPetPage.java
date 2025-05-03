@@ -112,7 +112,7 @@ public class AddPetPage extends BaseActivity {
         Intent intent = new Intent();
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
-        imagePickerLauncher.launch(Intent.createChooser(intent, "Select Picture"));
+        imagePickerLauncher.launch(Intent.createChooser(intent, getString(R.string.selectPicture)));
     }
 
     private void addPet() {
@@ -124,7 +124,7 @@ public class AddPetPage extends BaseActivity {
         String weight = etWeight.getText().toString().trim();
 
         if (petName.isEmpty() || age.isEmpty() || weight.isEmpty()) {
-            Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.pleaseFillInAll), Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -148,11 +148,11 @@ public class AddPetPage extends BaseActivity {
                 .collection(Constants.PET)
                 .add(pet)
                 .addOnSuccessListener(documentReference -> {
-                    Toast.makeText(AddPetPage.this, "Pet added successfully!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddPetPage.this, getString(R.string.petAddedSuccessfully), Toast.LENGTH_SHORT).show();
                     finish();
                 })
                 .addOnFailureListener(e -> {
-                    Toast.makeText(AddPetPage.this, "Failed to add pet", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddPetPage.this, getString(R.string.failToAddPet), Toast.LENGTH_SHORT).show();
                 });
     }
 

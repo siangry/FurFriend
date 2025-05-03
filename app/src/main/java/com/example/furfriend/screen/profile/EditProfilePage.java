@@ -129,18 +129,18 @@ public class EditProfilePage extends BaseActivity {
         Intent intent = new Intent();
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
-        imagePickerLauncher.launch(Intent.createChooser(intent, "Select Picture"));
+        imagePickerLauncher.launch(Intent.createChooser(intent, getString(R.string.selectPicture)));
     }
 
     private void uploadData() {
         String username = editTextUsername.getText().toString().trim();
         if (username.isEmpty()) {
-            editTextUsername.setError("Username required");
+            editTextUsername.setError(getString(R.string.usernameRequired));
             return;
         }
 
         ProgressDialog progressDialog = new ProgressDialog(this);
-        progressDialog.setTitle("Saving...");
+        progressDialog.setTitle(getString(R.string.saving));
         progressDialog.show();
 
         Map<String, Object> userUpdates = new HashMap<>();
@@ -163,7 +163,7 @@ public class EditProfilePage extends BaseActivity {
                 })
                 .addOnFailureListener(e -> {
                     progressDialog.dismiss();
-                    Toast.makeText(EditProfilePage.this, "Failed to update profile", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(EditProfilePage.this, getString(R.string.failToUpdateProfile), Toast.LENGTH_SHORT).show();
                 });
     }
 

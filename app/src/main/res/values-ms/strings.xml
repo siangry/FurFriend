@@ -155,4 +155,17 @@
     <string name="post">Hantar</string>
     <string name="post_description">Ucapkan pemikiran anda</string>
     <string name="write_here">Tulis di sini...</string>
+    <string name="unknown">Tidak diketahui</string>
+    <string name="selectPicture">Pilih Gambar</string>
+    <string name="pleaseFillInAll">Sila isi semua ruangan</string>
+    <string name="petAddedSuccessfully">Haiwan peliharaan berjaya ditambahkan!</string>
+    <string name="failToAddPet">Gagal menambah haiwan kesayangan</string>
+    <string name="noPetDetailsFound">Tiada butiran haiwan peliharaan ditemui</string>
+    <string name="failToLoadPetDetails">Gagal memuatkan butiran haiwan kesayangan</string>
+    <string name="usernameRequired">Nama pengguna diperlukan</string>
+    <string name="saving">Menyimpan</string>
+    <string name="failToUpdateProfile">Gagal mengemas kini profil</string>
+    <string name="currentPassIncorrect">Kata laluan semasa salah</string>
+    <string name="passwordUpdateFail">Kemas kini kata laluan gagal</string>
+    <string name="passwordChangeSuccess">Kata laluan berjaya ditukar</string>
 </resources>

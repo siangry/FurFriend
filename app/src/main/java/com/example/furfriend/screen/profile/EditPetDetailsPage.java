@@ -128,11 +128,11 @@ public class EditPetDetailsPage extends BaseActivity {
                             animalImage.setImageResource(R.drawable.ic_animal_image);
                         }
                     } else {
-                        Toast.makeText(this, "No pet details found.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, getString(R.string.noPetDetailsFound), Toast.LENGTH_SHORT).show();
                     }
                 })
                 .addOnFailureListener(e -> {
-                    Toast.makeText(EditPetDetailsPage.this, "Failed to load pet details.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(EditPetDetailsPage.this, getString(R.string.failToLoadPetDetails), Toast.LENGTH_SHORT).show();
                 });
     }
 

@@ -103,14 +103,14 @@ public class ResetPasswordPage extends BaseActivity {
                         currentUser.updatePassword(newPass)
                                 .addOnCompleteListener(updateTask -> {
                                     if (updateTask.isSuccessful()) {
-                                        Toast.makeText(ResetPasswordPage.this, "Password changed successfully", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(ResetPasswordPage.this, getString(R.string.passwordChangeSuccess), Toast.LENGTH_SHORT).show();
                                         finish(); // or navigate to another screen
                                     } else {
-                                        Toast.makeText(ResetPasswordPage.this, "Password update failed", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(ResetPasswordPage.this, getString(R.string.passwordUpdateFail), Toast.LENGTH_SHORT).show();
                                     }
                                 });
                     } else {
-                        Toast.makeText(ResetPasswordPage.this, "Current password incorrect", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ResetPasswordPage.this, getString(R.string.currentPassIncorrect), Toast.LENGTH_SHORT).show();
                     }
                 });
     }
