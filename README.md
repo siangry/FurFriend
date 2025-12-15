@@ -8,9 +8,15 @@ There are 5 primary features in this application:
 4. Calendar: To log pet activities, schedule reminders for appointments or medication, and export the records in PDF format
 5. Settings: To select preferred language.
 
+## Tech Stack
+- Java
+- Firebase
+
 ## Prototype (Figma)
 https://www.figma.com/design/X2Ow4hgTK4cybSAuHKbb7y/furfriend?node-id=0-1&t=YeIWFM06YsMbqkzZ-1
 
 ## Testing Account
 - Email: yoon@gmail.com
 - Password: Yoon123!
+
+
